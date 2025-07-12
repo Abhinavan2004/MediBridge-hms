@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>MediBridge</title>
-
+<%@include file="components/tailwinddapply.jsp" %>
 </head>
 <body>
-<h2>Hello Medical system </h2>
- <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+<%@include file="components/navbar.jsp" %>
 
+<h2>Hello Medical system </h2>
 </body>
 </html>
