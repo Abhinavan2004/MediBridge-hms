@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [14/Jul/2025:00:20:17 +0530] "GET /Hospital_Management_System/Apointment.jsp HTTP/1.1" 404 745
+0:0:0:0:0:0:0:1 - - [14/Jul/2025:00:20:24 +0530] "GET /Hospital_Management_System/Admin.jsp HTTP/1.1" 200 8588
+0:0:0:0:0:0:0:1 - - [14/Jul/2025:00:20:24 +0530] "GET /Hospital_Management_System/assets/logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Jul/2025:02:56:53 +0530] "GET /Hospital_Management_System/SignUp_Page.jsp HTTP/1.1" 200 9255
+0:0:0:0:0:0:0:1 - - [14/Jul/2025:02:56:53 +0530] "GET /Hospital_Management_System/assets/logo.png HTTP/1.1" 304 -
