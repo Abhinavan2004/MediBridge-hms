@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Hospital_Management_System/src/main/webapp/components/tailwinddapply.jsp&apos; to &apos;cdn-links.jsp&apos;" description="Rename resource &apos;tailwinddapply.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/components/tailwinddapply.jsp" name="cdn-links.jsp" stamp="1752408858347" updateReferences="true"/>
+</session>
