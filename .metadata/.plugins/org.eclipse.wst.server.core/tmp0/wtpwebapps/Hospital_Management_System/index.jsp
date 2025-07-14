@@ -1,3 +1,5 @@
+<%@ page import="com.db.DBConnect"%>
+<%@ page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,6 +108,8 @@
 <body>
     <!-- Include Navbar -->
 <%@include file="components/navbar.jsp" %>
+
+<% Connection conn = DBConnect.getConn(); %>
 
     <!-- Image Carousel -->
     <div id="hospitalCarousel" class="carousel slide" data-bs-ride="carousel">

@@ -142,18 +142,18 @@
             border-left: 4px solid #27ae60;
         }
 
-        .forgot-password {
+        .forgot-password , .create_account {
             text-align: center;
             margin-top: 20px;
         }
 
-        .forgot-password a {
+        .forgot-password a , .create_account a{
             color: #667eea;
             text-decoration: none;
             font-size: 14px;
         }
 
-        .forgot-password a:hover {
+        .forgot-password a:hover , .create_account a:hover {
             text-decoration: underline;
         }
 
@@ -210,6 +210,9 @@
 
             <div class="forgot-password">
                 <a href="forgot-password.jsp">Forgot your password?</a>
+            </div>
+			<div class="create_account">
+              Don't have an account?<a href="Signup.jsp">Create one.</a>
             </div>
         </div>
     </div>
