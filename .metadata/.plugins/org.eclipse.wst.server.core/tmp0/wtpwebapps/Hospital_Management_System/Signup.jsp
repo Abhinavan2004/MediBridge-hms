@@ -228,5 +228,40 @@
         </div>
     </div>
 
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = 'Show';
+            }
+        }
+
+        // Check for success/error messages and show popup
+        window.onload = function() {
+            <% 
+                String sucMsg = (String) session.getAttribute("sucMsg");
+                String errMsg = (String) session.getAttribute("errMsg");
+                
+                if (sucMsg != null) {
+                    session.removeAttribute("sucMsg");
+            %>
+                    alert("Registration Successfully Completed!");
+            <% 
+                } else if (errMsg != null) {
+                    session.removeAttribute("errMsg");
+            %>
+                    alert("Registration Failed! Please try again.");
+            <% 
+                }
+            %>
+        }
+    </script>
+
 </body>
 </html>
