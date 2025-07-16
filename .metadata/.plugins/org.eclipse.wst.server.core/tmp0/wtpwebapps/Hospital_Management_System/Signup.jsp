@@ -188,7 +188,7 @@
             <div id="errorMessage" class="error-message" style="display: none;"></div>
             <div id="successMessage" class="success-message" style="display: none;"></div>
 
-            <form id="loginForm" action="#" method="POST">
+            <form id="loginForm" action="user_register" method="POST">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required 

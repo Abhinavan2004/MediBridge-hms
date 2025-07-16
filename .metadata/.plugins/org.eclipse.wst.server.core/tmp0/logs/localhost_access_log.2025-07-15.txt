@@ -11,3 +11,13 @@
 0:0:0:0:0:0:0:1 - - [15/Jul/2025:01:51:33 +0530] "GET /Hospital_Management_System/index.jsp HTTP/1.1" 200 23581
 0:0:0:0:0:0:0:1 - - [15/Jul/2025:01:51:34 +0530] "GET /Hospital_Management_System/index.jsp HTTP/1.1" 200 23580
 0:0:0:0:0:0:0:1 - - [15/Jul/2025:01:51:36 +0530] "GET /Hospital_Management_System/index.jsp HTTP/1.1" 200 23580
+127.0.0.1 - - [15/Jul/2025:11:05:24 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/index.jsp HTTP/1.1" 200 23542
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/assets/doctor_1.jpeg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/assets/doctor_2.jpeg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/assets/logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/assets/doctor_3.jpeg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /Hospital_Management_System/assets/doctor_4.jpeg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:26 +0530] "GET /favicon.ico HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:29 +0530] "GET /Hospital_Management_System/User.jsp HTTP/1.1" 200 8776
+0:0:0:0:0:0:0:1 - - [15/Jul/2025:11:05:31 +0530] "GET /Hospital_Management_System/Signup.jsp HTTP/1.1" 200 9214
