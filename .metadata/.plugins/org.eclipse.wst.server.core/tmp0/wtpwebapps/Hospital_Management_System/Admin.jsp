@@ -80,10 +80,6 @@
             border-color: #667eea;
         }
 
-        .form-group input:invalid {
-            border-color: #e74c3c;
-        }
-
         .password-container {
             position: relative;
         }
@@ -116,10 +112,6 @@
         .login-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .login-btn:active {
-            transform: translateY(0);
         }
 
         .error-message {
@@ -157,15 +149,6 @@
             text-decoration: underline;
         }
 
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .loading .login-btn {
-            background: #ccc;
-        }
-
         @media (max-width: 480px) {
             .login-card {
                 padding: 30px 20px;
@@ -174,7 +157,8 @@
     </style>
 </head>
 <body>
-    <%@ include file="components/navbar.jsp" %>
+    <!-- Include navbar if it exists -->
+    <%-- <%@ include file="components/navbar.jsp" %> --%>
     
     <div class="login-container">
         <div class="login-card">
@@ -183,15 +167,29 @@
                 <p>Welcome back! Please sign in to your account.</p>
             </div>
 
-            <!-- Error/Success messages (static for frontend demo) -->
-            <div id="errorMessage" class="error-message" style="display: none;"></div>
-            <div id="successMessage" class="success-message" style="display: none;"></div>
+            <!-- Display error messages -->
+            <% String errorMsg = (String) session.getAttribute("errorMsg"); %>
+            <% if (errorMsg != null) { %>
+                <div class="error-message">
+                    <%= errorMsg %>
+                </div>
+                <% session.removeAttribute("errorMsg"); %>
+            <% } %>
+
+            <!-- Display success messages -->
+            <% String successMsg = (String) session.getAttribute("successMsg"); %>
+            <% if (successMsg != null) { %>
+                <div class="success-message">
+                    <%= successMsg %>
+                </div>
+                <% session.removeAttribute("successMsg"); %>
+            <% } %>
 
             <form id="loginForm" action="adminLogin" method="POST">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Username / Email</label>
                     <input type="text" id="username" name="username" required 
-                           placeholder="Enter your username">
+                           placeholder="Enter your username or email">
                 </div>
 
                 <div class="form-group">
@@ -214,5 +212,39 @@
         </div>
     </div>
 
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+
+        // Check for success/error messages and show popup
+        window.onload = function() {
+            <% 
+                String sucMsg = (String) session.getAttribute("sucMsg");
+                String errMsg = (String) session.getAttribute("errorMsg");
+                
+                if (sucMsg != null) {
+                    session.removeAttribute("sucMsg");
+            %>
+                    alert("Login Successful! Welcome Administrator.");
+            <% 
+                } else if (errMsg != null) {
+                    session.removeAttribute("errorMsg");
+            %>
+                    alert("Login Failed! <%= errMsg %>");
+            <% 
+                }
+            %>
+        }
+    </script>
 </body>
 </html>

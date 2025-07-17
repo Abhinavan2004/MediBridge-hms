@@ -26,9 +26,10 @@ public class AdminLogin extends HttpServlet {
 		if("ad".equals(username) && "password".equals(password)) {
 			session.setAttribute("adminObj", new User());
 			resp.sendRedirect("admin/index.jsp");
-		}
-		
+		}	
 	}
+	
+	
 	catch(Exception e) {
 		e.printStackTrace();
 		session.setAttribute("errorMsg", "Invalid username or password");

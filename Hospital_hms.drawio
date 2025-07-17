@@ -58,8 +58,14 @@
         <mxCell id="Km9lAdSg4DSO_Wd1nvl8-9" value="User Login&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;gradientColor=default;" vertex="1" parent="1">
           <mxGeometry x="520" y="210" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="Km9lAdSg4DSO_Wd1nvl8-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Km9lAdSg4DSO_Wd1nvl8-10" target="Km9lAdSg4DSO_Wd1nvl8-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="Km9lAdSg4DSO_Wd1nvl8-10" value="Admin login&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;gradientColor=default;" vertex="1" parent="1">
-          <mxGeometry x="530" y="370" width="120" height="60" as="geometry" />
+          <mxGeometry x="520" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Km9lAdSg4DSO_Wd1nvl8-16" value="Admin Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a0522d;fontColor=#ffffff;strokeColor=#6D1F00;gradientColor=default;" vertex="1" parent="1">
+          <mxGeometry x="770" y="370" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
