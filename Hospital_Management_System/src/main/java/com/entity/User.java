@@ -8,6 +8,10 @@ public class User {
 	private String contact;
 	
 	
+	public User() {
+		super();
+	}
+
 	public User(String fullname, String emailid, String contact, String password) {
 		super();
 		this.fullname = fullname;
