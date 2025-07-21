@@ -30,7 +30,7 @@ MediBridge
 </a>
 </li>
 <li class="nav-item me-4">
-<a class="nav-link" href="#">
+<a class="nav-link" href="../index.jsp">
 <i class="fa-solid fa-user-doctor me-1"></i>Doctor
 </a>
 </li>
@@ -40,15 +40,17 @@ MediBridge
 </a>
 </li>
 <li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<!-- CHANGED: <a> to <button> with proper classes -->
+<button class="nav-link dropdown-toggle btn btn-link text-white" type="button" 
+        id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
 <i class="fa-solid fa-user-circle me-1"></i>Account
-</a>
+</button>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 <li><a class="dropdown-item" href="profile.jsp">
 <i class="fa-solid fa-user me-2"></i>Profile
 </a></li>
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item" href="logout.jsp">
+<li><a class="dropdown-item" href="../adminlogout">
 <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
 </a></li>
 </ul>

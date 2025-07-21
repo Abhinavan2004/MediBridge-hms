@@ -1,0 +1,7 @@
+package com.Admin.servlet;
+
+public class admin_logout  extends HttpSession{
+		{
+}
+
+}

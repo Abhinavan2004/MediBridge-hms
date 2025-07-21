@@ -28,6 +28,14 @@
     <version>8.0.33</version>
 </dependency>
 
+<!-- In pom.xml -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+
   </dependencies>
   <build>
     <finalName>Hospital_Management_System</finalName>
