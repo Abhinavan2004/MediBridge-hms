@@ -3,4 +3,7 @@
     <fullyQualifiedTypeName name="org.apache.tomcat.jni.Error"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="com.db.DBConnect"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.entity.User"/>
 </qualifiedTypeNameHistroy>

@@ -29,8 +29,8 @@ public class User {
 	public String getEmailid() {
 		return emailid;
 	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailid(int i) {
+		this.emailid = i;
 	}
 	public String getContact() {
 		return contact;
