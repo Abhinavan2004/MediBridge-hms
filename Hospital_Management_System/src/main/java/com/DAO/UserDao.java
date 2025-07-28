@@ -35,27 +35,28 @@ public class UserDao {
 		return f ; 
 	}
 	
-	
-	public void User_login(String email , String password) {
-		User u = null ;
-		try {
-			String sql  = "SELECT * FROM USER WHERE email=? and password=?" ;
-			PreparedStatement ps = conn.prepareStatement(sql);
-			 
-			ps.setString(1 , email);
-			ps.setString(2, password) ;
-			
- 			ResultSet rs = ps.executeQuery();
- 			
- 			while(rs.next()) {
- 				u = new User();
- 				u.setEmailid(rs.getInt(1));
- 				u.setFullname(rs.getString(2));
- 				u.setEmailid(rs.getInt(2));
- 			}
- 			
-		}
+//	
+//	public void User_login(String email , String password) {
+//		User u = null ;
+//		try {
+//			String sql  = "SELECT * FROM USER WHERE email=? and password=?" ;
+//			PreparedStatement ps = conn.prepareStatement(sql);
+//			 
+//			ps.setString(1 , email);
+//			ps.setString(2, password) ;
+//			
+// 			ResultSet rs = ps.executeQuery();
+// 			
+// 			while(rs.next()) {
+// 				u = new User();
+// 				u.setEmailid(rs.getInt(1));
+// 				u.setFullname(rs.getString(2));
+// 				u.setEmailid(rs.getInt(2));
+// 			}
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();		}
+//		
+//	}
 		
-	}
-		)
 }

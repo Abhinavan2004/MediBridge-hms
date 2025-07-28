@@ -29,7 +29,7 @@ public class User {
 	public String getEmailid() {
 		return emailid;
 	}
-	public void setEmailid(int i) {
+	public void setEmailid(String i) {
 		this.emailid = i;
 	}
 	public String getContact() {

@@ -63,35 +63,24 @@
                         <i class="fa-solid fa-home me-1"></i>Home
                     </a>
                 </li>
+                
                 <li class="nav-item me-4">
                     <a class="nav-link" href="../index.jsp">
                         <i class="fa-solid fa-user-doctor me-1"></i>Doctor
                     </a>
                 </li>
+                
                 <li class="nav-item me-4">
                     <a class="nav-link" href="#">
                         <i class="fa-solid fa-user-injured me-1"></i>Patient
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" 
-                       id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-user-circle me-1"></i>Account
+                 
+                <li class="nav-item me-4">
+                     <a class="nav-link" href="../adminlogout">
+                         <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li>
-                            <a class="dropdown-item" href="profile.jsp">
-                                <i class="fa-solid fa-user me-2"></i>Profile
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a class="dropdown-item" href="../adminlogout">
-                                <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+               </li>       
             </ul>
         </div>
     </div>
