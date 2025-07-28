@@ -189,9 +189,9 @@
 
             <form id="loginForm" action="#" method="POST">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required 
-                           placeholder="Enter your username">
+                    <label for="email">Email id</label>
+                    <input type="text" id="email" name="email" required 
+                           placeholder="Enter your email">
                 </div>
 
                 <div class="form-group">
