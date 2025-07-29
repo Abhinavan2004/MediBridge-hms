@@ -39,7 +39,7 @@ public class UserDao {
 	public User user_login(String email , String password) {
 		User u = null ;
 		try {
-			String sql  = "SELECT * FROM USER WHERE email=? and password=?" ;
+			String sql  = "SELECT * FROM user_account WHERE email=? and password=?" ;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			 
 			ps.setString(1 , email);
@@ -49,10 +49,11 @@ public class UserDao {
  			
  			if(rs.next()) {
  				u = new User();
- 	            u.setId(rs.getInt(1)); 
- 				u.setFullname(rs.getString(2));
- 				u.setEmailid(rs.getString(3));
- 				u.setPassword(rs.getString(5));
+ 	            u.setId(rs.getInt("id")); 
+ 				u.setFullname(rs.getString("name"));
+ 				u.setEmailid(rs.getString("email"));
+ 				u.setContact(rs.getString("contact"));
+ 				u.setPassword(rs.getString("password"));
  			}
 		}
 		catch(Exception e) {
