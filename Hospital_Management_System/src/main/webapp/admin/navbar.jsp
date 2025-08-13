@@ -39,8 +39,15 @@
     </style>
 </head>
 <body>
+<!-- to solve the issue of back button accessing the admin page you should remove the cache  -->
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
+if(session.getAttribute("adminObj") == null){
+	response.sendRedirect("../Admin.jsp");
+}
 
+%>   
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp">

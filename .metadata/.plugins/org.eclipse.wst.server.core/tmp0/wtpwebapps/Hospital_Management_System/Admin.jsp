@@ -158,7 +158,7 @@
 </head>
 <body>
     <!-- Include navbar if it exists -->
-    <%-- <%@ include file="components/navbar.jsp" %> --%>
+    <%@ include file="components/navbar.jsp" %>
     
     <div class="login-container">
         <div class="login-card">

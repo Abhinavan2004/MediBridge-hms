@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -257,15 +258,6 @@
 </head>
 <body>
 
-<!-- Authentication Check -->
-<%
-    if (session.getAttribute("adminObj") == null) {
-        response.sendRedirect("../Admin.jsp");
-        return;
-    }
-%>
-
-
 <!-- Include Navbar -->
 <%@ include file="navbar.jsp" %>
 
@@ -284,12 +276,10 @@
         </div>
     </div>
 
-
 <!-- Main Dashboard Content -->
 <div class="container">
     <!-- Dashboard Title -->
     
-
     <!-- Stats Cards -->
     <div class="row g-4 mb-5">
         <div class="col-xl-3 col-lg-6 col-md-6">
@@ -432,6 +422,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

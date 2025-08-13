@@ -142,18 +142,18 @@
             border-left: 4px solid #27ae60;
         }
 
-        .forgot-password , .create_account {
+        .forgot-password, .create_account {
             text-align: center;
             margin-top: 20px;
         }
 
-        .forgot-password a , .create_account a{
+        .forgot-password a, .create_account a {
             color: #667eea;
             text-decoration: none;
             font-size: 14px;
         }
 
-        .forgot-password a:hover , .create_account a:hover {
+        .forgot-password a:hover, .create_account a:hover {
             text-decoration: underline;
         }
 
@@ -183,15 +183,38 @@
                 <p>Welcome back! Please sign in to your account.</p>
             </div>
 
-            <!-- Error/Success messages (static for frontend demo) -->
-            <div id="errorMessage" class="error-message" style="display: none;"></div>
-            <div id="successMessage" class="success-message" style="display: none;"></div>
+            <!-- Display error message from session -->
+            <% 
+                String errorMsg = (String) session.getAttribute("errorMsg");
+                if (errorMsg != null) {
+            %>
+                <div class="error-message">
+                    <%= errorMsg %>
+                </div>
+            <%
+                    session.removeAttribute("errorMsg");
+                }
+            %>
 
-            <form id="loginForm" action="#" method="POST">
+            <!-- Display success message from session -->
+            <% 
+                String successMsg = (String) session.getAttribute("successMsg");
+                if (successMsg != null) {
+            %>
+                <div class="success-message">
+                    <%= successMsg %>
+                </div>
+            <%
+                    session.removeAttribute("successMsg");
+                }
+            %>
+
+            <!-- Fixed: Added proper action for form -->
+            <form id="loginForm" action="${pageContext.request.contextPath}/UserLogin" method="POST">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required 
-                           placeholder="Enter your username">
+                    <label for="email">Email id</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter your email">
                 </div>
 
                 <div class="form-group">
@@ -211,11 +234,27 @@
             <div class="forgot-password">
                 <a href="forgot-password.jsp">Forgot your password?</a>
             </div>
-			<div class="create_account">
-              Don't have an account?<a href="Signup.jsp">Create one.</a>
+            <div class="create_account">
+                Don't have an account? <a href="Signup.jsp">Create one.</a>
             </div>
         </div>
     </div>
+
+    <!-- Fixed: Added missing JavaScript function -->
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+    </script>
 
 </body>
 </html>
