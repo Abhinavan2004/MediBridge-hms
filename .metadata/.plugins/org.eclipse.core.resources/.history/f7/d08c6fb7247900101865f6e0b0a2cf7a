@@ -13,9 +13,6 @@ public class UserDao {
 		this.conn = conn ;
 	}
 	
-	
-	
-	
 	public boolean register(User u) {
 		boolean f = false ;
 		try {
@@ -37,8 +34,6 @@ public class UserDao {
 		}
 		return f ; 
 	}
-	
-	
 	
 	
 	public User user_login(String email , String password) {

@@ -278,7 +278,6 @@
 
 <!-- Main Dashboard Content -->
 <div class="container">
-    <!-- Dashboard Title -->
     
     <!-- Stats Cards -->
     <div class="row g-4 mb-5">
@@ -350,7 +349,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Additional Dashboard Elements -->
     <div class="row g-4">
         <div class="col-lg-8">
@@ -367,7 +366,7 @@
                     <div class="appointment-item">
                         <div class="appointment-time">10:30 AM</div>
                         <div class="appointment-details">
-                            <p><strong>Jane Wilson</strong> - Dr. Johnson</p>
+                            <p><strong>Jackson Wilson</strong> - Dr. Johnson</p>
                             <small>General Checkup</small>
                         </div>
                     </div>
@@ -422,7 +421,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

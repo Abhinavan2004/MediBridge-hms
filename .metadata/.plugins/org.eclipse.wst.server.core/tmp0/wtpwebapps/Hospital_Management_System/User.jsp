@@ -210,7 +210,7 @@
             %>
 
             <!-- Fixed: Added proper action for form -->
-            <form id="loginForm" action="${pageContext.request.contextPath}/UserLogin" method="POST">
+            <form id="loginForm" action="UserLogin" method="POST">
                 <div class="form-group">
                     <label for="email">Email id</label>
                     <input type="email" id="email" name="email" required 
@@ -239,6 +239,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <!-- Fixed: Added missing JavaScript function -->
     <script>
