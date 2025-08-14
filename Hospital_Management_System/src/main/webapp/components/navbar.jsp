@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
 <div class="container-fluid">
 <a class="navbar-brand" href="index.jsp">
-<img src="assets/logo.png" alt="Logo" width="35" height="40" class="d-inline-block align-text-top me-2 rounded-circle" 
-     onerror="this.style.display='none'">
+<img src="assets/logo.png" alt="Logo" width="35" height="40" class="d-inline-block align-text-top me-2 rounded-circle" onerror="this.style.display='none'">
 MediBridge
 </a>
 
@@ -54,7 +54,6 @@ MediBridge
 </div>
 </nav>
 
-<!-- Scripts are included in CDN file -->
 </body>
 </html>
 </html>

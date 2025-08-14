@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediBridge: Administrator</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+   <%@ include file="../components/cdn-links.jsp" %>
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -39,6 +35,7 @@
     </style>
 </head>
 <body>
+
 <!-- to solve the issue of back button accessing the admin page you should remove the cache  -->
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -94,8 +91,6 @@ if(session.getAttribute("adminObj") == null){
     </div>
 </nav>
 
-<!-- Bootstrap JavaScript Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
