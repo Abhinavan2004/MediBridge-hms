@@ -217,3 +217,17 @@
 0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:05:35 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 200 3081
 0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:05:35 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 200 3081
 0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:05:38 +0530] "GET /Hospital_Management_System/components/user_logout HTTP/1.1" 404 809
+127.0.0.1 - - [19/Aug/2025:21:07:43 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:07:43 +0530] "GET /Hospital_Management_System/servlet/com.user.servlet.UserLogout HTTP/1.1" 404 822
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:07:52 +0530] "GET /Hospital_Management_System HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:07:56 +0530] "GET /Hospital_Management_System/ HTTP/1.1" 200 23499
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:07:58 +0530] "GET /Hospital_Management_System/User.jsp HTTP/1.1" 200 9357
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:08:21 +0530] "POST /Hospital_Management_System/UserLogin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:08:21 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 200 3081
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:08:26 +0530] "GET /Hospital_Management_System/components/user_logout HTTP/1.1" 404 809
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:20 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:30 +0530] "POST /Hospital_Management_System/UserLogin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:30 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 200 3084
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:33 +0530] "GET /Hospital_Management_System/user_logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:33 +0530] "GET /Hospital_Management_System/User.jsp HTTP/1.1" 200 9357
+0:0:0:0:0:0:0:1 - - [19/Aug/2025:21:13:50 +0530] "GET /Hospital_Management_System/components/userlogin_navbar.jsp HTTP/1.1" 302 -
