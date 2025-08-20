@@ -231,25 +231,25 @@
             <div class="col-lg-4">
                 <div class="form-section">
                     <h3>Add Doctor</h3>
-                    <form id="addDoctorForm" action="AddDoctorServlet" method="post">
+                    <form id="addDoctorForm" action="addDoctor" method="post">
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            <input type="text" class="form-control" id="fullName" name="doc_name" required>
                         </div>
                         
                         <div class="mb-3">
                             <label for="dob" class="form-label">DOB</label>
-                            <input type="date" class="form-control" id="dob" name="dob" required>
+                            <input type="date" class="form-control" id="dob" name="doc_dob" required>
                         </div>
                         
                         <div class="mb-3">
                             <label for="qualification" class="form-label">Qualification</label>
-                            <input type="text" class="form-control" id="qualification" name="qualification" placeholder="e.g., MBBS, MD" required>
+                            <input type="text" class="form-control" id="qualification" name="doc_quali" placeholder="e.g., MBBS, MD" required>
                         </div>
                         
                         <div class="mb-3">
                             <label for="specialist" class="form-label">Specialist</label>
-                            <select class="form-select" id="specialist" name="specialist" required>
+                            <select class="form-select" id="specialist" name="doc_spec" required>
                                 <option value="">--select--</option>
                                 <option value="Cardiology">Cardiology</option>
                                 <option value="Dermatology">Dermatology</option>
@@ -266,12 +266,12 @@
                         
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="doc_email" required>
                         </div>
                         
                         <div class="mb-3">
-                            <label for="mobNo" class="form-label">Mob No</label>
-                            <input type="tel" class="form-control" id="mobNo" name="mobNo" placeholder="e.g., 9090909090" required>
+                            <label for="mobNo" class="form-label">Contact No</label>
+                            <input type="tel" class="form-control" id="mobNo" name="doc_contact" placeholder="e.g., 9090909090" required>
                         </div>
                         
                         <button type="submit" class="btn btn-submit">

@@ -11,40 +11,23 @@
         body {
             background-color: #f8f9fa;
         }
-       
-    .navbar {
-        background: #28a745 !important;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .navbar-brand {
-        color: white !important;
-        font-weight: 600;
-        font-size: 1.2rem;
-    }
-
-    .navbar-nav .nav-link {
-        color: white !important;
-        font-weight: 500;
-        margin: 0 10px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
-
-    .navbar-nav .nav-link:hover {
-        background: rgba(255,255,255,0.1);
-        border-radius: 5px;
-    }
-
-
-    .admin-dropdown {
-        background: white;
-        color: #28a745 !important;
-        border-radius: 5px;
-        padding: 5px 15px;
-        font-weight: 600;
-    }
-
+        .navbar-brand {
+            font-weight: 600;
+        }
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ffc107 !important;
+        }
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
         .content-area {
             margin-top: 2rem;
             padding: 2rem;
