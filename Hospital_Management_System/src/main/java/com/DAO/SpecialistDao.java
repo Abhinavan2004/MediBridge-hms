@@ -16,7 +16,7 @@ public class SpecialistDao {
 		boolean f = false ;
 		
 		try {
-			String sql = "INSERT INTO Specialists_record(spec_name , category , contact_no)_VALUES(? ,? ,?)";
+			String sql = "INSERT INTO specialist_record(spec_name , category , contact_no) VALUES(? ,? ,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
 			stmt.setString(1, spec_name);

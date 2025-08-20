@@ -10,26 +10,56 @@
 <%@ include file="../components/cdn-links.jsp" %>
 <style>
     body {
-        background-color: #f8f9fa;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
     }
 
     .dashboard-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        padding: 1.5rem 0;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 2rem 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dashboard-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.5;
+    }
+
+    .dashboard-header .container {
+        position: relative;
+        z-index: 2;
     }
 
     .dashboard-header h1 {
-        font-size: 1.8rem;
-        font-weight: 600;
+        font-size: 2.2rem;
+        font-weight: 700;
         margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
     .dashboard-header .fa-hospital {
         color: #a8d8ff;
-        margin-right: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .dashboard-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 300;
+        margin: 0;
+        margin-top: 8px;
     }
 
     .user-info {
@@ -42,52 +72,77 @@
         font-size: 1.5rem;
     }
 
-    .dashboard-title {
-        margin-bottom: 2rem;
-        margin-top: 2rem;
-    }
-
-    .dashboard-title h2 {
-        color: #2c3e50;
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .dashboard-title p {
-        color: #6c757d;
-        font-size: 1.1rem;
+    .main-content {
+        padding: 3rem 0;
     }
 
     .stat-card {
         background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.07);
         border: none;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        height: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        position: relative;
+        height: 150px;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.1;
+        transition: opacity 0.3s ease;
     }
 
     .stat-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .stat-card:hover::before {
+        opacity: 0.2;
+    }
+
+    .stat-card.appointments::before {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .stat-card.doctors::before {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+    }
+
+    .stat-card.specialists::before {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .stat-card.patients::before {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
     }
 
     .stat-card-content {
+        padding: 25px;
+        height: 100%;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 20px;
+        position: relative;
+        z-index: 2;
     }
 
     .stat-icon {
         width: 60px;
         height: 60px;
-        border-radius: 12px;
+        border-radius: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 24px;
         color: white;
+        flex-shrink: 0;
     }
 
     .appointments .stat-icon {
@@ -108,18 +163,18 @@
 
     .stat-info h3 {
         font-size: 0.9rem;
-        color: #6c757d;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
+        font-weight: 600;
+        color: #666;
+        margin-bottom: 5px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
     .stat-number {
         font-size: 2rem;
-        font-weight: bold;
-        color: #2c3e50;
-        margin-bottom: 0.3rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 5px;
     }
 
     .stat-change {
@@ -128,92 +183,100 @@
     }
 
     .stat-change.positive {
-        color: #198754;
+        color: #10b981;
     }
 
     .stat-change.negative {
-        color: #dc3545;
+        color: #ef4444;
     }
 
     .stat-change.neutral {
-        color: #6c757d;
+        color: #6b7280;
     }
 
-    .dashboard-section {
+    .quick-actions-section {
         background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-        height: 100%;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin-top: 40px;
     }
 
-    .dashboard-section h3 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
+    .quick-actions-section h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
     }
 
-    .appointment-item {
-        display: flex;
-        gap: 1rem;
-        padding: 0.75rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #667eea;
-        margin-bottom: 1rem;
-    }
-
-    .appointment-time {
-        font-weight: bold;
-        color: #667eea;
-        min-width: 80px;
-    }
-
-    .appointment-details p {
-        margin-bottom: 0.25rem;
-    }
-
-    .appointment-details small {
-        color: #6c757d;
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
 
     .action-btn {
+        padding: 20px 30px;
+        border-radius: 15px;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1rem;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        width: 100%;
+        gap: 15px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         text-align: left;
-        margin-bottom: 0.75rem;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .action-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .action-btn:hover::before {
+        left: 100%;
+    }
+
+    .action-btn i {
+        font-size: 1.2rem;
     }
 
     .action-btn.primary {
         background: linear-gradient(135deg, #667eea, #764ba2);
         color: white;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
     }
 
     .action-btn.primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         color: white;
+        text-decoration: none;
     }
 
     .action-btn.secondary {
-        background: #f8f9fa;
-        color: #2c3e50;
-        border: 1px solid #e9ecef;
+        background: #f8fafc;
+        color: #475569;
+        border: 2px solid #e2e8f0;
     }
 
     .action-btn.secondary:hover {
-        background: #e9ecef;
-        transform: translateY(-1px);
-        color: #2c3e50;
+        background: #e2e8f0;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        color: #475569;
+        text-decoration: none;
     }
 
     .alert-unauthorized {
@@ -230,21 +293,43 @@
     }
 
     @media (max-width: 768px) {
-        .dashboard-title h2 {
+        .dashboard-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .dashboard-header .fa-hospital {
             font-size: 1.5rem;
+        }
+        
+        .stat-card-content {
+            padding: 20px;
+            gap: 15px;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
         }
         
         .stat-number {
             font-size: 1.5rem;
         }
         
-        .appointment-item {
-            flex-direction: column;
-            gap: 0.5rem;
+        .quick-actions {
+            grid-template-columns: 1fr;
         }
         
-        .appointment-time {
-            min-width: auto;
+        .action-btn {
+            padding: 15px 20px;
+        }
+        
+        .quick-actions-section {
+            padding: 30px 20px;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
         }
     }
 
@@ -252,6 +337,16 @@
         .stat-card-content {
             flex-direction: column;
             text-align: center;
+        }
+        
+        .dashboard-header {
+            padding: 1.5rem 0;
+        }
+        
+        .dashboard-header h1 {
+            font-size: 1.5rem;
+            flex-direction: column;
+            gap: 10px;
         }
     }
 </style>
@@ -262,161 +357,164 @@
 <%@ include file="navbar.jsp" %>
 
 <!-- Welcome Message -->
-    <div class="dashboard-header mb-10">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-                    <h1>
-                        <i class="fas fa-hospital"></i>
-                        Welcome, Administrator
-                    </h1>
-                    <p class="mb-0">Hospital Management System - Admin Dashboard</p>
-                </div>
+<div class="dashboard-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>
+                    <i class="fas fa-hospital"></i>
+                    Welcome, Administrator
+                </h1>
+                <p>Hospital Management System - Admin Dashboard</p>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Main Dashboard Content -->
-<div class="container">
-    
-    <!-- Stats Cards -->
-    <div class="row g-4 mb-5">
-        <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card stat-card appointments">
-                <div class="card-body p-0">
-                    <div class="stat-card-content">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-check"></i>
+<div class="main-content">
+    <div class="container">
+        
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card stat-card appointments">
+                    <div class="card-body p-0">
+                        <div class="stat-card-content">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Appointments</h3>
+                                <p class="stat-number">247</p>
+                                <span class="stat-change positive">+12% from last month</span>
+                            </div>
                         </div>
-                        <div class="stat-info">
-                            <h3>Total Appointments</h3>
-                            <p class="stat-number">247</p>
-                            <span class="stat-change positive">+12% from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card stat-card doctors">
+                    <div class="card-body p-0">
+                        <div class="stat-card-content">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Doctors</h3>
+                                <p class="stat-number">32</p>
+                                <span class="stat-change positive">+2 new this month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card stat-card specialists">
+                    <div class="card-body p-0">
+                        <div class="stat-card-content">
+                            <div class="stat-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Specialists</h3>
+                                <p class="stat-number">15</p>
+                                <span class="stat-change neutral">No change</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card stat-card patients">
+                    <div class="card-body p-0">
+                        <div class="stat-card-content">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Registered Patients</h3>
+                                <p class="stat-number">1,842</p>
+                                <span class="stat-change positive">+156 this month</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card stat-card doctors">
-                <div class="card-body p-0">
-                    <div class="stat-card-content">
-                        <div class="stat-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Active Doctors</h3>
-                            <p class="stat-number">32</p>
-                            <span class="stat-change positive">+2 new this month</span>
-                        </div>
-                    </div>
-                </div>
+        
+        <!-- Quick Actions Section -->
+        <div class="quick-actions-section">
+            <h3>Quick Actions</h3>
+            <div class="quick-actions">
+                <button class="btn action-btn primary" onclick="location.href='#'">
+                    <i class="fas fa-plus"></i>
+                    New Appointment
+                </button>
+                <button class="btn action-btn secondary" onclick="location.href='#'">
+                    <i class="fas fa-user-plus"></i>
+                    Add Patient
+                </button>
+                <button class="btn action-btn secondary" onclick="doctor_dashboard.jsp">
+                    <i class="fas fa-user-md"></i>
+                    Add Doctor
+                </button>
+                
+                
+                <button class="btn action-btn secondary" data-bs-toggle="modal" data-bs-target="#addSpecialistModal">
+                    <i class="fas fa-user-md"></i>
+                    Add Specialist
+                </button>
+                
+<div class="modal fade" id="addSpecialistModal" tabindex="-1" aria-labelledby="addSpecialistModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSpecialistModalLabel">Add New Specialist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card stat-card specialists">
-                <div class="card-body p-0">
-                    <div class="stat-card-content">
-                        <div class="stat-icon">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Specialists</h3>
-                            <p class="stat-number">15</p>
-                            <span class="stat-change neutral">No change</span>
-                        </div>
+            <div class="modal-body">
+                <form id="addSpecialistForm" action="../addSpecialist" method="post">
+                    <div class="mb-3">
+                        <label for="spec_name" class="form-label">Specialist Name</label>
+                        <input type="text" class="form-control" id="spec_name" name="spec_name" required>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Radiology">Radiology</option>
+                            <option value="Surgery">Surgery</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_no" class="form-label">Contact No</label>
+                        <input type="tel" class="form-control" id="contact_no" name="contact_no" placeholder="+91 XXXXXXXXXX" required>
+                    </div>
+                </form>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card stat-card patients">
-                <div class="card-body p-0">
-                    <div class="stat-card-content">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Registered Patients</h3>
-                            <p class="stat-number">1,842</p>
-                            <span class="stat-change positive">+156 this month</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="addSpecialistForm" class="btn btn-primary">Add Specialist</button>
             </div>
         </div>
     </div>
-    
-    <!-- Additional Dashboard Elements -->
-    <div class="row g-4">
-        <div class="col-lg-8">
-            <div class="dashboard-section">
-                <h3>Today's Appointments</h3>
-                <div class="appointment-list">
-                    <div class="appointment-item">
-                        <div class="appointment-time">09:00 AM</div>
-                        <div class="appointment-details">
-                            <p><strong>John Doe</strong> - Dr. Smith</p>
-                            <small>Cardiology Consultation</small>
-                        </div>
-                    </div>
-                    <div class="appointment-item">
-                        <div class="appointment-time">10:30 AM</div>
-                        <div class="appointment-details">
-                            <p><strong>Jackson Wilson</strong> - Dr. Johnson</p>
-                            <small>General Checkup</small>
-                        </div>
-                    </div>
-                    <div class="appointment-item">
-                        <div class="appointment-time">02:15 PM</div>
-                        <div class="appointment-details">
-                            <p><strong>Mike Brown</strong> - Dr. Davis</p>
-                            <small>Orthopedic Review</small>
-                        </div>
-                    </div>
-                    <div class="appointment-item">
-                        <div class="appointment-time">03:45 PM</div>
-                        <div class="appointment-details">
-                            <p><strong>Sarah Connor</strong> - Dr. Wilson</p>
-                            <small>Dermatology Checkup</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
 
-        <div class="col-lg-4">
-            <div class="dashboard-section">
-                <h3>Quick Actions</h3>
-                <div class="quick-actions">
-                    <button class="btn action-btn primary">
-                        <i class="fas fa-plus"></i>
-                        New Appointment
-                    </button>
-                    <button class="btn action-btn secondary">
-                        <i class="fas fa-user-plus"></i>
-                        Add Patient
-                    </button>
-                    <button class="btn action-btn secondary">
-                        <i class="fas fa-user-md"></i>
-                        Add Doctor
-                    </button>
-                    <button class="btn action-btn secondary">
-                        <i class="fas fa-file-medical"></i>
-                        Generate Report
-                    </button>
-                    <button class="btn action-btn secondary">
-                        <i class="fas fa-chart-bar"></i>
-                        View Analytics
-                    </button>
-                    <button class="btn action-btn secondary">
-                        <i class="fas fa-cog"></i>
-                        Settings
-                    </button>
-                </div>
+               
+                <button class="btn action-btn secondary" onclick="location.href='#'">
+                    <i class="fas fa-cog"></i>
+                    Total Appointments
+                </button>
             </div>
         </div>
     </div>
