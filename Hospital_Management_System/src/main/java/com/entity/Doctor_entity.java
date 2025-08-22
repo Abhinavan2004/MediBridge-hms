@@ -12,7 +12,7 @@ public class Doctor_entity {
 	
 	
 	public Doctor_entity(String doc_name, String doc_dob, String doc_quali, String doc_spec, String doc_email,
-			String doc_contact) {
+			String doc_contact , int id) {
 		super();
 		this.doc_name = doc_name;
 		this.doc_dob = doc_dob;
@@ -20,9 +20,8 @@ public class Doctor_entity {
 		this.doc_spec = doc_spec;
 		this.doc_email = doc_email;
 		this.doc_contact = doc_contact;
+		this.id=id ;
 	}
-	
-	
 	
 	public int getId() {
 		return id;
