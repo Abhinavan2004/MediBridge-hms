@@ -18,7 +18,7 @@ public class DoctorDao {
     public boolean regiter_doctor(String doc_name , String doc_dob , String doc_quali , String doc_spec , String doc_email , String doc_contact) {
         boolean f = false ;
         try {
-            String sql = "INSERT INTO Doctor_record(doc_name , doc_dob , doc_quali , doc_spec , doc_email , contact_no) VALUES(?, ?, ?, ?, ?, ?)" ;
+            String sql = "INSERT INTO Doctor_record(doc_name , doc_dob , doc_quali , doc_spec , doc_email , doc_contact_no) VALUES(?, ?, ?, ?, ?, ?)" ;
             PreparedStatement pst = conn.prepareStatement(sql);
 
             pst.setString(1 , doc_name);

@@ -227,7 +227,7 @@ body {
 				<div class="col-lg-4">
 					<div class="form-section">
 						<h3>Add Doctor</h3>
-						<form id="addDoctorForm" action="addDoctor" method="post">
+						<form id="addDoctorForm" action="../addDoctor" method="post">
 							<div class="mb-3">
 								<label for="fullName" class="form-label">Full Name</label> <input
 									type="text" class="form-control" id="fullName" name="doc_name"

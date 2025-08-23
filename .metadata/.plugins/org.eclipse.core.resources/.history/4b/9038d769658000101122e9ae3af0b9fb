@@ -27,7 +27,7 @@ public class AddDoctor extends HttpServlet {
 			String doc_email = req.getParameter("doc_email");
 			String doc_contact = req.getParameter("doc_contact");
 
-			System.out.println(doc_name + doc_dob + doc_quali + doc_spec + doc_email + doc_contact);			// Validate required fields
+			// Validate required fields
 			if (doc_name == null || doc_name.trim().isEmpty() || doc_dob == null || doc_dob.trim().isEmpty()
 					|| doc_quali == null || doc_quali.trim().isEmpty() || doc_spec == null || doc_spec.trim().isEmpty()
 					|| doc_email == null || doc_email.trim().isEmpty() || doc_contact == null
