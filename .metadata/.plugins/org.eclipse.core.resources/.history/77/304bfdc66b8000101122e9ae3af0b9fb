@@ -10,9 +10,6 @@ public class Doctor_entity {
 	String doc_email ;
 	String doc_contact ;
 	
-	 public Doctor_entity() {
-	        super();
-	    }
 	
 	public Doctor_entity(String doc_name, String doc_dob, String doc_quali, String doc_spec, String doc_email,
 			String doc_contact , int id) {

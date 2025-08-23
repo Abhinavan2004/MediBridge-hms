@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.DAO.DoctorDao, com.db.DBConnect, com.entity.Doctor_entity, java.util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -165,6 +166,7 @@ body {
 	font-size: 0.8rem;
 	font-weight: 600;
 	transition: all 0.2s ease;
+	margin-right: 5px;
 }
 
 .btn-edit:hover {
@@ -173,9 +175,31 @@ body {
 	color: white;
 }
 
+.btn-delete {
+	background: #dc3545;
+	border: none;
+	color: white;
+	padding: 6px 15px;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+	background: #c82333;
+	transform: translateY(-1px);
+	color: white;
+}
+
 .table-responsive {
 	border-radius: 10px;
 	overflow: hidden;
+}
+
+.alert {
+	border-radius: 10px;
+	margin-bottom: 20px;
 }
 
 @media ( max-width : 768px) {
@@ -194,7 +218,7 @@ body {
 		font-size: 0.8rem;
 		padding: 10px 5px;
 	}
-	.btn-edit {
+	.btn-edit, .btn-delete {
 		padding: 4px 8px;
 		font-size: 0.7rem;
 	}
@@ -217,10 +241,28 @@ body {
 	<!-- Navigation Bar -->
 	<%@ include file="../admin/navbar.jsp"%>
 
-
 	<!-- Main Content -->
 	<div class="main-content">
 		<div class="container-fluid">
+			<!-- Success/Error Messages -->
+			<c:if test="${not empty succMsg}">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<i class="fas fa-check-circle me-2"></i>
+					${succMsg}
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				</div>
+				<c:remove var="succMsg" scope="session" />
+			</c:if>
+			
+			<c:if test="${not empty errorMsg}">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<i class="fas fa-exclamation-circle me-2"></i>
+					${errorMsg}
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				</div>
+				<c:remove var="errorMsg" scope="session" />
+			</c:if>
+
 			<div class="row g-4">
 
 				<!-- Add Doctor Form -->
@@ -229,15 +271,13 @@ body {
 						<h3>Add Doctor</h3>
 						<form id="addDoctorForm" action="../addDoctor" method="post">
 							<div class="mb-3">
-								<label for="fullName" class="form-label">Full Name</label> <input
-									type="text" class="form-control" id="fullName" name="doc_name"
-									required>
+								<label for="fullName" class="form-label">Full Name</label> 
+								<input type="text" class="form-control" id="fullName" name="doc_name" required>
 							</div>
 
 							<div class="mb-3">
-								<label for="dob" class="form-label">DOB</label> <input
-									type="date" class="form-control" id="dob" name="doc_dob"
-									required>
+								<label for="dob" class="form-label">DOB</label> 
+								<input type="date" class="form-control" id="dob" name="doc_dob" required>
 							</div>
 
 							<div class="mb-3">
@@ -247,8 +287,8 @@ body {
 							</div>
 
 							<div class="mb-3">
-								<label for="specialist" class="form-label">Specialist</label> <select
-									class="form-select" id="specialist" name="doc_spec" required>
+								<label for="specialist" class="form-label">Specialist</label> 
+								<select class="form-select" id="specialist" name="doc_spec" required>
 									<option value="">--select--</option>
 									<option value="Cardiology">Cardiology</option>
 									<option value="Dermatology">Dermatology</option>
@@ -264,14 +304,13 @@ body {
 							</div>
 
 							<div class="mb-3">
-								<label for="email" class="form-label">Email</label> <input
-									type="email" class="form-control" id="email" name="doc_email"
-									required>
+								<label for="email" class="form-label">Email</label> 
+								<input type="email" class="form-control" id="email" name="doc_email" required>
 							</div>
 
 							<div class="mb-3">
-								<label for="mobNo" class="form-label">Contact No</label> <input
-									type="tel" class="form-control" id="mobNo" name="doc_contact"
+								<label for="mobNo" class="form-label">Contact No</label> 
+								<input type="tel" class="form-control" id="mobNo" name="doc_contact"
 									placeholder="e.g., 9090909090" required>
 							</div>
 
@@ -300,31 +339,50 @@ body {
 									</tr>
 								</thead>
 								<tbody>
-									<c:choose>
-										<c:when test="${not empty doctorList}">
-											<c:forEach var="doctor" items="${doctorList}">
-												<tr>
-													<td>${doctor.name}</td>
-													<td>${doctor.dob}</td>
-													<td>${doctor.qualification}</td>
-													<td>${doctor.specialist}</td>
-													<td>${doctor.email}</td>
-													<td>${doctor.mobNo}</td>
-													<td>
-														<button class="btn btn-edit"
-															onclick="editDoctor(${doctor.id})">Edit</button>
-													</td>
-												</tr>
-											</c:forEach>
-										</c:when>
-										<c:otherwise>
-											<tr>
-												<td colspan="7" class="text-center text-muted py-4"><i
-													class="fas fa-user-md fa-2x mb-2"></i><br> No doctors
-													found. Add a doctor using the form on the left.</td>
-											</tr>
-										</c:otherwise>
-									</c:choose>
+									<%
+									try {
+										DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
+										List<Doctor_entity> list2 = dao2.getAllDoctor(); // Fixed method name
+										
+										if (list2 != null && !list2.isEmpty()) {
+											for (Doctor_entity d : list2) {
+									%>
+									<tr>
+										<td><%=d.getDoc_name()%></td>
+										<td><%=d.getDoc_dob()%></td>
+										<td><%=d.getDoc_quali()%></td>
+										<td><%=d.getDoc_spec()%></td>
+										<td><%=d.getDoc_email()%></td>
+										<td><%=d.getDoc_contact()%></td>
+										<td>
+											<button class="btn btn-edit" onclick="editDoctor(<%=d.getId()%>)">Edit</button>
+											<button class="btn btn-delete" onclick="deleteDoctor(<%=d.getId()%>)">Delete</button>
+										</td>
+									</tr>
+									<%
+											}
+										} else {
+									%>
+									<tr>
+										<td colspan="7" class="text-center text-muted py-4">
+											<i class="fas fa-user-md fa-2x mb-2"></i><br> 
+											No doctors found. Add a doctor using the form on the left.
+										</td>
+									</tr>
+									<%
+										}
+									} catch (Exception e) {
+										e.printStackTrace();
+									%>
+									<tr>
+										<td colspan="7" class="text-center text-danger py-4">
+											<i class="fas fa-exclamation-triangle fa-2x mb-2"></i><br> 
+											Error loading doctor data.
+										</td>
+									</tr>
+									<%
+									}
+									%>
 								</tbody>
 							</table>
 						</div>
@@ -335,23 +393,18 @@ body {
 		</div>
 	</div>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 	<script>
-    function editDoctor(doctorId) {
-        // Redirect to edit page or open edit modal
-        window.location.href = 'EditDoctorServlet?id=' + doctorId;
-    }
-    
-    // Show success message if doctor was added
-    <c:if test="${not empty succMsg}">
-        alert('${succMsg}');
-    </c:if>
-    
-    // Show error message if there was an issue
-    <c:if test="${not empty errorMsg}">
-        alert('${errorMsg}');
-    </c:if>
-</script>
+		function editDoctor(doctorId) {
+			// Redirect to edit page or open edit modal
+			window.location.href = '${pageContext.request.contextPath}/EditDoctorServlet?id=' + doctorId;
+		}
+		
+		function deleteDoctor(doctorId) {
+			if (confirm('Are you sure you want to delete this doctor?')) {
+				window.location.href = '${pageContext.request.contextPath}/DeleteDoctorServlet?id=' + doctorId;
+			}
+		}
+	</script>
 </body>
 </html>

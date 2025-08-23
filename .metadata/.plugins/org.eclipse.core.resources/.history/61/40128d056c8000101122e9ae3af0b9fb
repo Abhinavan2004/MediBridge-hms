@@ -269,7 +269,7 @@ body {
 				<div class="col-lg-4">
 					<div class="form-section">
 						<h3>Add Doctor</h3>
-						<form id="addDoctorForm" action="../addDoctor" method="post">
+						<form id="addDoctorForm" action="${pageContext.request.contextPath}/addDoctor" method="post">
 							<div class="mb-3">
 								<label for="fullName" class="form-label">Full Name</label> 
 								<input type="text" class="form-control" id="fullName" name="doc_name" required>
@@ -348,12 +348,12 @@ body {
 											for (Doctor_entity d : list2) {
 									%>
 									<tr>
-										<td><%=d.getDoc_name()%></td>
-										<td><%=d.getDoc_dob()%></td>
-										<td><%=d.getDoc_quali()%></td>
-										<td><%=d.getDoc_spec()%></td>
-										<td><%=d.getDoc_email()%></td>
-										<td><%=d.getDoc_contact()%></td>
+										<td><%=d.getName()%></td>
+										<td><%=d.getDob()%></td>
+										<td><%=d.getQuali()%></td>
+										<td><%=d.getSpec()%></td>
+										<td><%=d.getEmail()%></td>
+										<td><%=d.getMobNo()%></td>
 										<td>
 											<button class="btn btn-edit" onclick="editDoctor(<%=d.getId()%>)">Edit</button>
 											<button class="btn btn-delete" onclick="deleteDoctor(<%=d.getId()%>)">Delete</button>

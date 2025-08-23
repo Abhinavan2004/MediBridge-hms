@@ -34,9 +34,8 @@ public List<Doctor_entity> getAllDoctor() {
             d.setDoc_name(rs.getString("doc_name"));
             d.setDoc_dob(rs.getString("doc_dob"));
             d.setDoc_quali(rs.getString("doc_quali"));
-            d.setDoc_spec(rs.getString("doc_spec"));
-            d.setDoc_email(rs.getString("doc_email"));
-            d.setDoc_contact(rs.getString("contact_no"));
+            d.setDoc_spec(rs.getString("doc_speci"));
+            d.setDoc_email(rs.getString("contact_no"));
             list.add(d);
         }
         

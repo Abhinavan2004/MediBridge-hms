@@ -24,19 +24,19 @@ public List<Doctor_entity> getAllDoctor() {
     Doctor_entity d = null;
     
     try {
-        String sql = "SELECT * FROM Doctor_record";
+        String sql = "SELECT * FROM doctor";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         
         while (rs.next()) {
             d = new Doctor_entity();
             d.setId(rs.getInt("id"));
-            d.setDoc_name(rs.getString("doc_name"));
-            d.setDoc_dob(rs.getString("doc_dob"));
-            d.setDoc_quali(rs.getString("doc_quali"));
-            d.setDoc_spec(rs.getString("doc_spec"));
-            d.setDoc_email(rs.getString("doc_email"));
-            d.setDoc_contact(rs.getString("contact_no"));
+            d.setDoc_name(rs.getString("full_name"));
+            d.setDoc_dob(rs.getString("dob"));
+            d.setDoc_quali(rs.getString("qualification"));
+            d.setDoc_spec(rs.getString("specialist"));
+            d.setDoc_email(rs.getString("email"));
+            d.setDoc_contact(rs.getString("mobno"));
             list.add(d);
         }
         
@@ -48,7 +48,7 @@ public List<Doctor_entity> getAllDoctor() {
 }
 
 
-	
+	}
     
     public boolean regiter_doctor(String doc_name , String doc_dob , String doc_quali , String doc_spec , String doc_email , String doc_contact) {
         boolean f = false ;
