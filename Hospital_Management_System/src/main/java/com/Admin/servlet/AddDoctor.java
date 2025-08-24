@@ -30,12 +30,13 @@ public class AddDoctor extends HttpServlet {
 			String doc_spec = req.getParameter("doc_spec");
 			String doc_email = req.getParameter("doc_email");
 			String doc_contact = req.getParameter("doc_contact");
+			String doc_password = req.getParameter("doc_password");
 
-			System.out.println(doc_name + doc_dob + doc_quali + doc_spec + doc_email + doc_contact);			// Validate required fields
+			System.out.println(doc_name + doc_dob + doc_quali + doc_spec + doc_email + doc_contact + doc_password);			// Validate required fields
 			if (doc_name == null || doc_name.trim().isEmpty() || doc_dob == null || doc_dob.trim().isEmpty()
 					|| doc_quali == null || doc_quali.trim().isEmpty() || doc_spec == null || doc_spec.trim().isEmpty()
 					|| doc_email == null || doc_email.trim().isEmpty() || doc_contact == null
-					|| doc_contact.trim().isEmpty()) {
+					|| doc_contact.trim().isEmpty() || doc_password == null) {
 
 				HttpSession session = req.getSession();
 				session.setAttribute("errorMessage", "All fields are required!");
@@ -47,7 +48,7 @@ public class AddDoctor extends HttpServlet {
 			DoctorDao dao = new DoctorDao(DBConnect.getConn());
 			HttpSession session = req.getSession();
 			
-			if (dao.regiter_doctor(doc_name, doc_dob, doc_quali, doc_spec, doc_email, doc_contact)) {
+			if (dao.regiter_doctor(doc_name, doc_dob, doc_quali, doc_spec, doc_email, doc_contact , doc_password)) {
 				session.setAttribute("succMsg", "Doctor Added Successfully");
 				System.out.println("Doctor Added Successfully");
 				resp.sendRedirect("admin/doctor_dashboard.jsp");

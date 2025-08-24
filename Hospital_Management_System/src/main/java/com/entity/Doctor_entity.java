@@ -9,13 +9,14 @@ public class Doctor_entity {
 	String doc_spec;
 	String doc_email ;
 	String doc_contact ;
+	String doc_password ;
 	
 	 public Doctor_entity() {
 	        super();
 	    }
 	
 	public Doctor_entity(String doc_name, String doc_dob, String doc_quali, String doc_spec, String doc_email,
-			String doc_contact , int id) {
+			String doc_contact ,String doc_password , int id) {
 		super();
 		this.doc_name = doc_name;
 		this.doc_dob = doc_dob;
@@ -23,6 +24,7 @@ public class Doctor_entity {
 		this.doc_spec = doc_spec;
 		this.doc_email = doc_email;
 		this.doc_contact = doc_contact;
+		this.doc_password = doc_password;
 		this.id=id ;
 	}
 	
@@ -80,5 +82,13 @@ public class Doctor_entity {
 
 	public void setDoc_contact(String doc_contact) {
 		this.doc_contact = doc_contact;
+	}
+	
+	public String getDoc_password() {
+		return doc_password;
+	}
+	
+	public void setDoc_password(String doc_password) {
+		this.doc_password = doc_password ;
 	}
 }

@@ -37,6 +37,7 @@ public List<Doctor_entity> getAllDoctor() {
             d.setDoc_spec(rs.getString("doc_spec"));
             d.setDoc_email(rs.getString("doc_email"));
             d.setDoc_contact(rs.getString("contact_no"));
+            d.setDoc_password(rs.getString("doc_password"));
             list.add(d);
         }
         
@@ -50,10 +51,10 @@ public List<Doctor_entity> getAllDoctor() {
 
 	
     
-    public boolean regiter_doctor(String doc_name , String doc_dob , String doc_quali , String doc_spec , String doc_email , String doc_contact) {
+    public boolean regiter_doctor(String doc_name , String doc_dob , String doc_quali , String doc_spec , String doc_email , String doc_contact, String doc_password) {
         boolean f = false ;
         try {
-            String sql = "INSERT INTO Doctor_record(doc_name , doc_dob , doc_quali , doc_spec , doc_email , contact_no) VALUES(?, ?, ?, ?, ?, ?)" ;
+            String sql = "INSERT INTO Doctor_record(doc_name , doc_dob , doc_quali , doc_spec , doc_email , contact_no , doc_password) VALUES(?, ?, ?, ?, ?, ?, ?)" ;
             PreparedStatement pst = conn.prepareStatement(sql);
 
             pst.setString(1 , doc_name);
@@ -62,6 +63,7 @@ public List<Doctor_entity> getAllDoctor() {
             pst.setString(4, doc_spec);
             pst.setString(5, doc_email);
             pst.setString(6, doc_contact);
+            pst.setString(7, doc_password);
 
             int i = pst.executeUpdate();
             if(i==1) {
@@ -77,7 +79,7 @@ public List<Doctor_entity> getAllDoctor() {
     public boolean regiter_doctor(Doctor_entity d) {
         boolean f = false;
         try {
-            String sql = "INSERT INTO Doctor_record(doc_name, doc_dob, doc_quali, doc_spec, doc_email, doc_contact) VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Doctor_record(doc_name, doc_dob, doc_quali, doc_spec, doc_email, doc_contact, doc_password) VALUES(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             
             pst.setString(1, d.getDoc_name());
@@ -86,6 +88,7 @@ public List<Doctor_entity> getAllDoctor() {
             pst.setString(4, d.getDoc_spec());
             pst.setString(5, d.getDoc_email());
             pst.setString(6, d.getDoc_contact());
+            pst.setString(7, d.getDoc_password());
             
             int i = pst.executeUpdate();
             if (i == 1) {

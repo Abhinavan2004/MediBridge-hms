@@ -313,6 +313,12 @@ body {
 								<input type="tel" class="form-control" id="mobNo" name="doc_contact"
 									placeholder="e.g., 9090909090" required>
 							</div>
+							
+							<div class="mb-3">
+								<label for="password" class="form-label">Password</label> 
+								<input type="password" class="form-control" id="password" name="doc_password"
+						          required>
+							</div>
 
 							<button type="submit" class="btn btn-submit">
 								<i class="fas fa-plus me-2"></i> Add Doctor
@@ -335,7 +341,7 @@ body {
 										<th>Specialist</th>
 										<th>Email</th>
 										<th>Mob No</th>
-										<th>Action</th>
+\										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -355,8 +361,8 @@ body {
 										<td><%=d.getDoc_email()%></td>
 										<td><%=d.getDoc_contact()%></td>
 										<td>
-											<button class="btn btn-edit" onclick="editDoctor(<%=d.getId()%>)">Edit</button>
-											<button class="btn btn-delete" onclick="deleteDoctor(<%=d.getId()%>)">Delete</button>
+											<button class="btn btn-edit btn-success" onclick="editDoctor(<%=d.getId()%>)">Edit</button>
+											<button class="btn btn-delete btn-danger" onclick="deleteDoctor(<%=d.getId()%>)">Delete</button>
 										</td>
 									</tr>
 									<%

@@ -19,6 +19,8 @@ create table Doctor_record(id int auto_increment primary key ,
                                doc_email varchar(20),
                                contact_no varchar(10)
                                );
+                               
+ALTER table Doctor_record ADD COLUMN doc_password varchar(20) ;
                          
 create table specialist_record(id int auto_increment primary key ,
                                spec_name varchar(30),
