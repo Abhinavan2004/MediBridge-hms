@@ -49,6 +49,41 @@ public List<Doctor_entity> getAllDoctor() {
 }
 
 
+
+
+
+
+public Doctor_entity getDoctorDetails(int id) {
+    Doctor_entity d = null;
+    
+    try {
+        String sql = "SELECT * FROM Doctor_record WHERE id=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            d = new Doctor_entity();
+            d.setId(rs.getInt("id"));
+            d.setDoc_name(rs.getString("doc_name"));
+            d.setDoc_dob(rs.getString("doc_dob"));
+            d.setDoc_quali(rs.getString("doc_quali"));
+            d.setDoc_spec(rs.getString("doc_spec"));
+            d.setDoc_email(rs.getString("doc_email"));
+            d.setDoc_contact(rs.getString("contact_no"));
+            d.setDoc_password(rs.getString("doc_password"));
+        }
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+    return d;
+}
+
+
+
+
 	
     
     public boolean regiter_doctor(String doc_name , String doc_dob , String doc_quali , String doc_spec , String doc_email , String doc_contact, String doc_password) {

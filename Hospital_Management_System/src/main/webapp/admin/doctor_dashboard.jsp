@@ -341,7 +341,7 @@ body {
 										<th>Specialist</th>
 										<th>Email</th>
 										<th>Mob No</th>
-\										<th>Action</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -361,8 +361,8 @@ body {
 										<td><%=d.getDoc_email()%></td>
 										<td><%=d.getDoc_contact()%></td>
 										<td>
-											<button class="btn btn-edit btn-success" onclick="editDoctor(<%=d.getId()%>)">Edit</button>
-											<button class="btn btn-delete btn-danger" onclick="deleteDoctor(<%=d.getId()%>)">Delete</button>
+											<a href="Update_Doctor.jsp?id=<%=d.getId()%>" class="btn btn-edit btn-success">Edit</a>
+											<a class="btn btn-delete btn-danger" onclick="deleteDoctor(<%=d.getId()%>)">Delete</a>
 										</td>
 									</tr>
 									<%
@@ -403,7 +403,7 @@ body {
 	<script>
 		function editDoctor(doctorId) {
 			// Redirect to edit page or open edit modal
-			window.location.href = '${pageContext.request.contextPath}/EditDoctorServlet?id=' + doctorId;
+			window.location.href = '../EditDoctorServlet?id=' + doctorId;
 		}
 		
 		function deleteDoctor(doctorId) {
