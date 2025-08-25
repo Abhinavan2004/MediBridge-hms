@@ -458,10 +458,10 @@
                     <i class="fas fa-user-plus"></i>
                     Add Patient
                 </button>
-                <button class="btn action-btn secondary" onclick="doctor_dashboard.jsp">
-                    <i class="fas fa-user-md"></i>
-                    Add Doctor
-                </button>
+                <button class="btn action-btn secondary" onclick="window.location.href='doctor_dashboard.jsp'">
+    <i class="fas fa-user-md"></i>
+    Add Doctor
+</button>
                 
                 
                 <button class="btn action-btn secondary" data-bs-toggle="modal" data-bs-target="#addSpecialistModal">

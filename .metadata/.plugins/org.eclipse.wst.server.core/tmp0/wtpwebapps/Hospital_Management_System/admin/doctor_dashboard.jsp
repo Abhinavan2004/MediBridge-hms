@@ -362,7 +362,7 @@ body {
 										<td><%=d.getDoc_contact()%></td>
 										<td>
 											<a href="Update_Doctor.jsp?id=<%=d.getId()%>" class="btn btn-edit btn-success">Edit</a>
-											<a class="btn btn-delete btn-danger" onclick="deleteDoctor(<%=d.getId()%>)">Delete</a>
+											<a href="../deleteDoctor?id=<%=d.getId()%>" class="btn btn-delete btn-danger">Delete</a>
 										</td>
 									</tr>
 									<%

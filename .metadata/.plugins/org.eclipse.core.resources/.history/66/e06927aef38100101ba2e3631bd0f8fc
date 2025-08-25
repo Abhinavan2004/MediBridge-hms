@@ -162,28 +162,5 @@ public Doctor_entity getDoctorDetails(int id) {
         return f ;
     }
 
-    
-    
-   
-    
-    
-    
-    public boolean delete_doctor(int id) {
-        boolean f = false ;
-        try {
-            String sql = "DELETE FROM Doctor_record WHERE id=?" ;
-            PreparedStatement pst = conn.prepareStatement(sql);
-
-            pst.setInt(1 , id);
-   
-            int i = pst.executeUpdate();
-            if(i==1) { 
-                f=true;
-            }
-        } catch(Exception e ) {
-            e.printStackTrace();
-        }
-        return f ;
-    }
 }
   
