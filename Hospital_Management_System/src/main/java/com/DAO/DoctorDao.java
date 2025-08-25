@@ -185,5 +185,42 @@ public Doctor_entity getDoctorDetails(int id) {
         }
         return f ;
     }
+    
+    
+    
+    
+    
+    
+    
+
+public Doctor_entity Doctor_Login(String email  , String password){
+    Doctor_entity d = null;
+    
+    try {
+        String sql = "SELECT * FROM Doctor_record WHERE doc_email=? AND doc_password=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,email);
+        ps.setString(2,password);
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            d = new Doctor_entity();
+            d.setId(rs.getInt("id"));
+            d.setDoc_name(rs.getString("doc_name"));
+            d.setDoc_dob(rs.getString("doc_dob"));
+            d.setDoc_quali(rs.getString("doc_quali"));
+            d.setDoc_spec(rs.getString("doc_spec"));
+            d.setDoc_email(rs.getString("doc_email"));
+            d.setDoc_contact(rs.getString("contact_no"));
+            d.setDoc_password(rs.getString("doc_password"));
+        }
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+    return d;
+}
+
 }
   
