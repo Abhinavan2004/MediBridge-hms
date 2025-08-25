@@ -16,7 +16,7 @@ public class Doctor_entity {
 	    }
 	
 	public Doctor_entity(String doc_name, String doc_dob, String doc_quali, String doc_spec, String doc_email,
-			String doc_contact ,String doc_password , int id) {
+			String doc_contact ,String doc_password) {
 		super();
 		this.doc_name = doc_name;
 		this.doc_dob = doc_dob;
@@ -25,9 +25,21 @@ public class Doctor_entity {
 		this.doc_email = doc_email;
 		this.doc_contact = doc_contact;
 		this.doc_password = doc_password;
-		this.id=id ;
 	}
 	
+	public Doctor_entity(int id, String doc_name, String doc_dob, String doc_quali, String doc_spec, String doc_email,
+			String doc_contact, String doc_password) {
+		super();
+		this.id = id;
+		this.doc_name = doc_name;
+		this.doc_dob = doc_dob;
+		this.doc_quali = doc_quali;
+		this.doc_spec = doc_spec;
+		this.doc_email = doc_email;
+		this.doc_contact = doc_contact;
+		this.doc_password = doc_password;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -265,8 +265,8 @@ body {
 			
 			<%
 			int id = Integer.parseInt(request.getParameter("id"));
-			DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
-			Doctor_entity d = dao2.getDoctorDetails(id);
+			DoctorDao dao = new DoctorDao(DBConnect.getConn());
+			Doctor_entity d = dao.getDoctorDetails(id);
 			%>
 			<div class="row g-4">
 				<!-- Add Doctor Form -->
@@ -291,21 +291,21 @@ body {
 							</div>
 
 							<div class="mb-3">
-								<label for="specialist" class="form-label">Specialist</label> 
-								<select class="form-select" id="specialist" name="doc_spec" value=<%=d.getDoc_spec() %> required>
-									<option value="">--select--</option>
-									<option value="Cardiology">Cardiology</option>
-									<option value="Dermatology">Dermatology</option>
-									<option value="Dentist">Dentist</option>
-									<option value="Neurology">Neurology</option>
-									<option value="Orthopedic">Orthopedic</option>
-									<option value="Pediatrics">Pediatrics</option>
-									<option value="Psychiatry">Psychiatry</option>
-									<option value="General Medicine">General Medicine</option>
-									<option value="ENT">ENT</option>
-									<option value="Ophthalmology">Ophthalmology</option>
-								</select>
-							</div>
+    <label for="specialist" class="form-label">Specialist</label>
+    <select class="form-select" id="specialist" name="doc_spec" required>
+        <option value="">Select a specialist...</option>
+        <option value="Cardiology" <%= d.getDoc_spec().equals("Cardiology") ? "selected" : "" %>>Cardiology</option>
+        <option value="Dermatology" <%= d.getDoc_spec().equals("Dermatology") ? "selected" : "" %>>Dermatology</option>
+        <option value="Dentist" <%= d.getDoc_spec().equals("Dentist") ? "selected" : "" %>>Dentist</option>
+        <option value="Neurology" <%= d.getDoc_spec().equals("Neurology") ? "selected" : "" %>>Neurology</option>
+        <option value="Orthopedic" <%= d.getDoc_spec().equals("Orthopedic") ? "selected" : "" %>>Orthopedic</option>
+        <option value="Pediatrics" <%= d.getDoc_spec().equals("Pediatrics") ? "selected" : "" %>>Pediatrics</option>
+        <option value="Psychiatry" <%= d.getDoc_spec().equals("Psychiatry") ? "selected" : "" %>>Psychiatry</option>
+        <option value="General Medicine" <%= d.getDoc_spec().equals("General Medicine") ? "selected" : "" %>>General Medicine</option>
+        <option value="ENT" <%= d.getDoc_spec().equals("ENT") ? "selected" : "" %>>ENT</option>
+        <option value="Ophthalmology" <%= d.getDoc_spec().equals("Ophthalmology") ? "selected" : "" %>>Ophthalmology</option>
+    </select>
+</div>
 
 							<div class="mb-3">
 								<label for="email" class="form-label">Email</label> 
@@ -323,6 +323,8 @@ body {
 								<input type="text" class="form-control" id="password" value=<%=d.getDoc_password() %> name="doc_password"
 						          required>
 							</div>
+							
+							<input type= hidden value=<%d.getId();%> id="id">
 
 							<button type="submit" class="btn btn-submit">
 								<i class="fas fa-plus me-2"></i> Update Doctor
