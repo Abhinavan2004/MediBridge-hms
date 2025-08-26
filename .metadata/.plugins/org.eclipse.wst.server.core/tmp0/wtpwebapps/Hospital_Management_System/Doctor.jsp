@@ -187,11 +187,11 @@
             <div id="errorMessage" class="error-message" style="display: none;"></div>
             <div id="successMessage" class="success-message" style="display: none;"></div>
 
-            <form id="loginForm" action="../doctorLogin" method="POST">
+            <form id="loginForm" action="doctorLogin" method="post">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required 
-                           placeholder="Enter your username">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter your email">
                 </div>
 
                 <div class="form-group">

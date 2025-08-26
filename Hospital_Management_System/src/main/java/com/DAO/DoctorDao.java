@@ -189,8 +189,7 @@ public Doctor_entity getDoctorDetails(int id) {
     
     
     
-    
-    
+   
     
 
 public Doctor_entity Doctor_Login(String email  , String password){
@@ -203,7 +202,7 @@ public Doctor_entity Doctor_Login(String email  , String password){
         ps.setString(2,password);
         ResultSet rs = ps.executeQuery();
         
-        while (rs.next()) {
+        if(rs.next()) {
             d = new Doctor_entity();
             d.setId(rs.getInt("id"));
             d.setDoc_name(rs.getString("doc_name"));
