@@ -30,7 +30,7 @@ public class Doctor_Login extends HttpServlet {
 		if(doctor != null) {
 			session.setAttribute("doctObj" , doctor);
 			resp.sendRedirect("Doctor/Dashboard.jsp");
-			System.out.println("Doctor Logged inn ");
+			System.out.println("Doctor Logged ");
 			
 		}
 		else {
