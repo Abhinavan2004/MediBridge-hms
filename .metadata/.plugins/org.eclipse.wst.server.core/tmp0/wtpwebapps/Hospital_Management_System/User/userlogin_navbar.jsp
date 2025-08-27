@@ -50,7 +50,7 @@ body {
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
 	if (session.getAttribute("userObj") == null) {
-		response.sendRedirect("../User.jsp");
+		response.sendRedirect("../User/u ser_index.jsp");
 	}
 	%>
 	

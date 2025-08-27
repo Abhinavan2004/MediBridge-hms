@@ -478,7 +478,7 @@
                                              List<Doctor_entity> list = dao.getAllDoctor() ;
                                             		for(Doctor_entity d : list){
                                             		%>
-                                            		<option value="<%=d.getId()%>"><%=d.getDoc_name()%> (<%=d.getDoc_spec()%>)</option>
+                                            		<option value="<%=d.getId()%>"><%=d.getDoc_name()%>(<%=d.getDoc_spec()%>)</option>
                                             		<%}
                                             		 %>
                                             </select>
