@@ -33,7 +33,7 @@
 							class="fa-solid fa-user-shield me-1"></i>Admin
 					</a></li>
 					<li class="nav-item me-4"><a class="nav-link"
-						href="Apointment.jsp"> <i
+						href="User/User_index.jsp"> <i
 							class="fa-solid fa-calendar-check me-1"></i>Appointment
 					</a></li>
 					<li class="nav-item me-4"><a class="nav-link" href="User.jsp">

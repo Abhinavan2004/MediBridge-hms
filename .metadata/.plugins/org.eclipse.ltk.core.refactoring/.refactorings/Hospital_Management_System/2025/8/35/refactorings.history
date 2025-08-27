@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;userlogin_navbar.jsp&apos; to &apos;User&apos;" description="Move &apos;userlogin_navbar.jsp&apos; to &apos;User&apos;" destination="src/main/webapp/User" element1="src/main/webapp/components/userlogin_navbar.jsp" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1756318531455" updateReferences="true"/>
+</session>

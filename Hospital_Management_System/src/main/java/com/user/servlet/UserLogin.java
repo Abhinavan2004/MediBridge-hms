@@ -32,7 +32,7 @@ public class UserLogin extends HttpServlet {
         if(user != null) {
             session.setAttribute("userObj", user);
             System.out.println("Login successful, redirecting to navbar.jsp");
-            resp.sendRedirect("components/userlogin_navbar.jsp");
+            resp.sendRedirect("User/User_index.jsp");
         } else {
             System.out.println("Login failed - Invalid credentials");
             session.setAttribute("errorMsg", "Invalid Email or Password!!!");
