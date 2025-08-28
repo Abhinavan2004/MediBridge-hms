@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,8 @@ body {
 }
 
 .navbar-brand {
-	font-weight: 600;_
+	font-weight: 600;
+	_
 }
 
 .nav-link {
@@ -53,7 +55,7 @@ body {
 		response.sendRedirect("../User/user_index.jsp");
 	}
 	%>
-	
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.jsp"> <img
@@ -78,24 +80,20 @@ body {
 					</a></li>
 
 					<li class="nav-item me-4"><a class="nav-link"
-						href="../index.jsp"> <i class="fa-solid fa-user-doctor me-1"></i>View
+						href="../User/View_appointment.jsp"> <i class="fa-solid fa-user-doctor me-1"></i>View
 							Appointment
 					</a></li>
 
 
-			<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" 
-          type="button" 
-          id="dropdownMenuButton" 
-          data-bs-toggle="dropdown" 
-          aria-expanded="false">
-    ${userObj.fullname}
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Change Password</a></li>
-    <li><a class="dropdown-item" href="../user_logout">Logout</a></li>
-  </ul>
-</div>
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button"
+							id="dropdownMenuButton" data-bs-toggle="dropdown"
+							aria-expanded="false">${userObj.fullname}</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="#">Change Password</a></li>
+							<li><a class="dropdown-item" href="../user_logout">Logout</a></li>
+						</ul>
+					</div>
 				</ul>
 			</div>
 		</div>

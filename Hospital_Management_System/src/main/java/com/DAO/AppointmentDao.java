@@ -2,6 +2,9 @@ package com.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.entity.Appointment_entity;
 
@@ -45,6 +48,39 @@ public class AppointmentDao {
 		}
 		return f;
 		
+	}
+	
+	public List<Appointment_entity> getAllApointmentById(int user_id){
+		List<Appointment_entity> list  = new ArrayList<Appointment_entity>();
+		Appointment_entity ap = new Appointment_entity() ;
+		
+		try {
+			String sql = "SELECT * FROM appointment_record WHERE id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1,user_id);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				ap = new Appointment_entity() ;
+				ap.setId(rs.getInt(1));
+				ap.setUserid(rs.getInt(2));
+				ap.setApp_name(rs.getString(3));
+				ap.setApp_gender(rs.getString(4));
+				ap.setApp_age(rs.getInt(5));
+				ap.setApp_date(rs.getString(6));
+				ap.setApp_email(rs.getString(7));
+				ap.setApp_contact(rs.getString(8));
+				ap.setApp_cond(rs.getString(9));
+				ap.setDoct_id(rs.getInt(9));
+				ap.setApp_add(rs.getString(11));
+				ap.setApp_status(rs.getString(12));
+				list.add(ap);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list ;
 	}
 	
 }

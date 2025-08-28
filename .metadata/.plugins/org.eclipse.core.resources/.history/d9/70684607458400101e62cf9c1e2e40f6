@@ -1,0 +1,50 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.entity.Appointment_entity;
+
+public class AppointmentDao {
+	private Connection conn ;
+
+	public AppointmentDao(Connection conn) {
+		super() ;
+		this.conn = conn;
+	}
+	
+	public boolean addAppointment(Appointment_entity ap) {
+		boolean f = false ;
+		
+		try {
+			
+			String sql = "INSERT INTO appointment_record(user_id, app_name , app_gender , app_age ,app_contact , app_email , app_date , app_cond , app_add , app_status , doct_id) VALUES (?, ? ,?,? ,? ,? , ?, ?, ?, ?, ?) ;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, ap.getUserid());
+			ps.setString(2, ap.getApp_name());
+			ps.setString(3, ap.getApp_gender());
+			ps.setInt(4, ap.getApp_age());
+			ps.setString(5, ap.getApp_contact());
+			ps.setString(6, ap.getApp_email());
+			ps.setString(7, ap.getApp_date());
+			ps.setString(8,ap.getApp_cond());
+			ps.setString(9, ap.getApp_add());
+			ps.setString(10, ap.getApp_status());
+            ps.setInt(11, ap.getDoct_id());
+
+			
+			
+			int i = ps.executeUpdate() ;
+			
+			if(i==1) {
+				f=true ; 
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+		
+	}
+	
+}
