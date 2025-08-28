@@ -50,7 +50,7 @@ body {
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
 	if (session.getAttribute("userObj") == null) {
-		response.sendRedirect("../User/user_index.jsp");
+		response.sendRedirect("../User/u ser_index.jsp");
 	}
 	%>
 	
@@ -83,19 +83,16 @@ body {
 					</a></li>
 
 
-			<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" 
-          type="button" 
-          id="dropdownMenuButton" 
-          data-bs-toggle="dropdown" 
-          aria-expanded="false">
+					<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     ${userObj.fullname}
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Change Password</a></li>
     <li><a class="dropdown-item" href="../user_logout">Logout</a></li>
   </ul>
 </div>
+
 				</ul>
 			</div>
 		</div>

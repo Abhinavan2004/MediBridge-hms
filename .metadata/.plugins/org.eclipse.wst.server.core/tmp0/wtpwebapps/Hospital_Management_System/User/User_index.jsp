@@ -323,7 +323,7 @@
 <body>
 
 <!-- Include Navbar -->
-<%@ include file="../components/navbar.jsp" %>
+<%@ include file="../User/userlogin_navbar.jsp" %>
 
 <!-- Page Header -->
 <div class="page-header">

@@ -41,7 +41,7 @@ create table specialist_record(id int auto_increment primary key ,
 --                                 app_contact varchar(10),
 --                                 app_email varchar(30),
 --                                 
-                                
+Select * from appointment_record ;
 
 Select * from specialist_record ;
 
