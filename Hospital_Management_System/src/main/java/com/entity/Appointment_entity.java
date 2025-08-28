@@ -4,7 +4,7 @@ public class Appointment_entity {
 
 	private int id ;
 	private int userid ;
-	 private String App_name ;
+	 private String app_name ;
 	 private String App_gender ;
 	 private int App_age ;
 	 private String App_date ;
@@ -15,12 +15,12 @@ public class Appointment_entity {
 	 private int doct_id ;
 	 private String App_status ;
 	 
-	 public Appointment_entity(int id, int userid, String app_name, String app_gender, int app_age, String app_date,
+	 public Appointment_entity( int userid, String app_name, String app_gender, int app_age, String app_date,
 				String app_email, String app_contact, String app_cond, String app_add, int doct_id, String app_status) {
 			super();
-			this.id = id;
+//			this.id = id;
 			this.userid = userid;
-			App_name = app_name;
+			this.app_name = app_name;
 			App_gender = app_gender;
 			App_age = app_age;
 			App_date = app_date;
@@ -53,11 +53,11 @@ public class Appointment_entity {
 	}
 
 	public String getApp_name() {
-		return App_name;
+		return app_name;
 	}
 
 	public void setApp_name(String app_name) {
-		App_name = app_name;
+		this.app_name = app_name;
 	}
 
 	public String getApp_gender() {

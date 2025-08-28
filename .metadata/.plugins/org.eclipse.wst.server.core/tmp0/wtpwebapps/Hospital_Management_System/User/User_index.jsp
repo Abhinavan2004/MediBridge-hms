@@ -4,6 +4,8 @@
 <%@ page import="com.db.DBConnect" %>
 <%@ page import="com.entity.Doctor_entity" %>
 <%@ page import="java.util.List" %>
+<%@ page isELIgnored="false" %>
+
 
 
 <!DOCTYPE html>
@@ -351,9 +353,9 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="bookAppointment" method="post" id="appointmentForm">
-                            
-                            <input type="hidden" name="userid" value="${userObj.name}">
+                        <form action="../bookAppointment" method="post" id="appointmentForm">
+                  
+                            <input type="hidden" name="user_id" value="${userObj.id}">
                             <!-- Personal Information Section -->
                             <div class="form-section">
                                 <h4 class="section-title">
@@ -464,7 +466,7 @@
                                                     <i class="fas fa-notes-medical"></i>
                                                 </span>
                                                 <input type="text" class="form-control" id="diseases" name="diseases" 
-                                                       placeholder="Describe your condition (optional)">
+                                                       placeholder="Describe your condition">
                                             </div>
                                         </div>
                                     </div>
@@ -522,7 +524,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <script>
 // Form validation and enhancement
 document.addEventListener('DOMContentLoaded', function() {
@@ -589,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
+</script> -->
 
 </body>
 </html>

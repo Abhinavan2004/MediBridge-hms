@@ -16,7 +16,7 @@ body {
 }
 
 .navbar-brand {
-	font-weight: 600;
+	font-weight: 600;_
 }
 
 .nav-link {

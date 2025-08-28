@@ -1,0 +1,33 @@
+package com.user.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.entity.Appointment_entity;
+
+@WebServlet("")
+public class AppointmentServlet extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int user_id = Integer.parseInt(req.getParameter("user_id"));
+		String app_name = req.getParameter("app_name");
+		String app_gender = req.getParameter("app_gender");
+		int app_age = Integer.parseInt(req.getParameter("app_age"));
+		String app_contact = req.getParameter("app_contact");
+		String app_email = req.getParameter("app_email");
+		String app_date = req.getParameter("app_date");
+		String app_cond = req.getParameter("app_cond");
+		String app_add = req.getParameter("app_add");
+		String app_status = req.getParameter("app_status");
+		String doct_id = req.getParameter("doct_id");
+		
+		Appointment_entity ap = new Appointment_entity(user_id , app_name , app_gender,  app_age , app_contact , app_email , app_date , );
+	}
+	
+}

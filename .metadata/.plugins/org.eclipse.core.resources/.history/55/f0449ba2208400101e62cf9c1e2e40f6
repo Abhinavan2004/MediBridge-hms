@@ -1,0 +1,136 @@
+package com.entity;
+
+public class Appointment_entity {
+
+	private int id ;
+	private int userid ;
+	 private String app_name ;
+	 private String App_gender ;
+	 private int App_age ;
+	 private String App_date ;
+	 private String App_email ;
+	 private String App_contact ;
+	 private String App_cond;
+	 private String App_add ;
+	 private int doct_id ;
+	 private String App_status ;
+	 
+	 public Appointment_entity( int userid, String app_name, String app_gender, int app_age, String app_date,
+				String app_email, String app_contact, String app_cond, String app_add, int doct_id, String app_status) {
+			super();
+//			this.id = id;
+			this.userid = userid;
+			app_name = app_name;
+			App_gender = app_gender;
+			App_age = app_age;
+			App_date = app_date;
+			App_email = app_email;
+			App_contact = app_contact;
+			App_cond = app_cond;
+			App_add = app_add;
+			this.doct_id = doct_id;
+			App_status = app_status;
+		}
+	 
+	public Appointment_entity() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getApp_name() {
+		return App_name;
+	}
+
+	public void setApp_name(String app_name) {
+		App_name = app_name;
+	}
+
+	public String getApp_gender() {
+		return App_gender;
+	}
+
+	public void setApp_gender(String app_gender) {
+		App_gender = app_gender;
+	}
+
+	public int getApp_age() {
+		return App_age;
+	}
+
+	public void setApp_age(int app_age) {
+		App_age = app_age;
+	}
+
+	public String getApp_date() {
+		return App_date;
+	}
+
+	public void setApp_date(String app_date) {
+		App_date = app_date;
+	}
+
+	public String getApp_email() {
+		return App_email;
+	}
+
+	public void setApp_email(String app_email) {
+		App_email = app_email;
+	}
+
+	public String getApp_contact() {
+		return App_contact;
+	}
+
+	public void setApp_contact(String app_contact) {
+		App_contact = app_contact;
+	}
+
+	public String getApp_cond() {
+		return App_cond;
+	}
+
+	public void setApp_cond(String app_cond) {
+		App_cond = app_cond;
+	}
+
+	public String getApp_add() {
+		return App_add;
+	}
+
+	public void setApp_add(String app_add) {
+		App_add = app_add;
+	}
+
+	public int getDoct_id() {
+		return doct_id;
+	}
+
+	public void setDoct_id(int doct_id) {
+		this.doct_id = doct_id;
+	}
+
+	public String getApp_status() {
+		return App_status;
+	}
+
+	public void setApp_status(String app_status) {
+		App_status = app_status;
+	}
+
+	
+}
