@@ -1,0 +1,9 @@
+package com.entity;
+
+public class Appointment_entity {
+
+	private int id ;
+	private int userid ;
+	String App_name ;
+	String App
+}
