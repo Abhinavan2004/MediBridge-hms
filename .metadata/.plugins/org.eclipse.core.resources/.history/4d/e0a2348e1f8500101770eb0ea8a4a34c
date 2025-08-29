@@ -123,6 +123,8 @@ public class AppointmentDao {
 	
 	
 	
+	
+	
 	public Appointment_entity getAllDetailsComment(int id){
 		Appointment_entity ap = new Appointment_entity() ;
 		
