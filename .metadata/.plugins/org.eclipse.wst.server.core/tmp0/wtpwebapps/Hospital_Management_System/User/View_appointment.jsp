@@ -310,8 +310,7 @@
                                     int completedAppointments = 0;
                                     
                                     for(Appointment_entity ap : list){
-                                        Doctor_entity d = dao2.getDoctorDetails(ap.getId());
-                                        if("Completed".equals(ap.getApp_status())) {
+                                    	Doctor_entity d = dao2.getDoctorDetails(ap.getDoct_id());                                        if("Completed".equals(ap.getApp_status())) {
                                             completedAppointments++;
                                         }
                                 %>

@@ -64,13 +64,13 @@ if(session.getAttribute("doctObj") == null){
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item me-4">
-                    <a class="nav-link active" aria-current="page" href="../index.jsp">
+                    <a class="nav-link active" aria-current="page" href="Dashboard.jsp">
                         <i class="fa-solid fa-home me-1"></i>Home
                     </a>
                 </li>
                 
                 <li class="nav-item me-4">
-                    <a class="nav-link" href="doctor_dashboard.jsp">
+                    <a class="nav-link" href="Patients.jsp">
                         <i class="fa-solid fa-user-doctor me-1"></i>Patient
                     </a>
                 </li>

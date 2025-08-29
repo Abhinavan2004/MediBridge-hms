@@ -1,0 +1,379 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ page import="com.DAO.AppointmentDao, com.DAO.DoctorDao, com.db.DBConnect, com.entity.Appointment_entity, com.entity.Doctor_entity, java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MediBridge : Doctor Dashboard</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+    
+    .welcome-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .welcome-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        transform: rotate(45deg);
+    }
+    
+    .welcome-section::after {
+        content: '';
+        position: absolute;
+        bottom: -20%;
+        right: 5%;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        transform: rotate(30deg);
+    }
+    
+    .main-container {
+        margin-top: -30px;
+        position: relative;
+        z-index: 10;
+        padding: 30px 0;
+    }
+    
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stats-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: 15px 15px 0 0;
+    }
+    
+    .stats-card.appointments::before {
+        background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+    
+    .stats-card.doctors::before {
+        background: linear-gradient(90deg, #f093fb, #f5576c);
+    }
+    
+    .stats-card.specialists::before {
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+    }
+    
+    .stats-card.patients::before {
+        background: linear-gradient(90deg, #43e97b, #38f9d7);
+    }
+    
+    .stats-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .appointments .stats-icon {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    
+    .doctors .stats-icon {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+    }
+    
+    .specialists .stats-icon {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+    
+    .patients .stats-icon {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+    }
+    
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2d3748;
+        margin-bottom: 8px;
+    }
+    
+    .stats-label {
+        font-size: 1rem;
+        color: #718096;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    
+    .stats-change {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    
+    .stats-change.positive {
+        color: #38a169;
+    }
+    
+    .stats-change.neutral {
+        color: #718096;
+    }
+    
+    .quick-actions {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #2d3748;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 2px;
+    }
+    
+    .action-btn {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #4a5568;
+        display: block;
+        margin-bottom: 15px;
+    }
+    
+    .action-btn:hover {
+        border-color: #667eea;
+        color: #667eea;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        text-decoration: none;
+    }
+    
+    .action-btn i {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .action-btn-text {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    .primary-action {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white !important;
+        border: none;
+    }
+    
+    .primary-action:hover {
+        background: linear-gradient(135deg, #5a67d8, #6b46c1);
+        color: white !important;
+        border: none;
+    }
+    
+    .welcome-text {
+        position: relative;
+        z-index: 10;
+    }
+    
+    .welcome-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        font-weight: 300;
+    }
+    
+    @media (max-width: 768px) {
+        .welcome-title {
+            font-size: 2rem;
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+        }
+        
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+        
+        .quick-actions {
+            padding: 30px 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <%@ include file="navbar_doctor.jsp" %>
+    
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <div class="container">
+            <div class="welcome-text">
+                <div class="d-flex align-items-center">
+                    <div class="stats-icon me-3">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <h1 class="welcome-title">Welcome,Doctor</h1>
+                        <p class="welcome-subtitle">Hospital Management System - Doctor Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container main-container">
+        <!-- Statistics Cards -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card appointments">
+                    <div class="stats-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stats-number">247</div>
+                    <div class="stats-label">Total Appointments</div>
+                    <div class="stats-change positive">+12% from last month</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card doctors">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="stats-number">32</div>
+                    <div class="stats-label">Active Doctors</div>
+                    <div class="stats-change positive">+2 new this month</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card specialists">
+                    <div class="stats-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="stats-number">15</div>
+                    <div class="stats-label">Specialists</div>
+                    <div class="stats-change neutral">No change</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card patients">
+                    <div class="stats-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-number">1,842</div>
+                    <div class="stats-label">Registered Patients</div>
+                    <div class="stats-change positive">+156 this month</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions Section -->
+        <div class="quick-actions">
+            <h2 class="section-title">Quick Actions</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="#" class="action-btn primary-action">
+                        <i class="fas fa-plus"></i>
+                        <div class="action-btn-text">View Appointments</div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-user-plus"></i>
+                        <div class="action-btn-text">View Doctors</div>
+                    </a>
+                </div>
+                
+               
+                
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-stethoscope"></i>
+                        <div class="action-btn-text">Add Specialist</div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-stethoscope"></i>
+                        <div class="action-btn-text">View Feedback</div>
+                    </a>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
