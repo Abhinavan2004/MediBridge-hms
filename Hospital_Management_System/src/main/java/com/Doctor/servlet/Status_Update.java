@@ -18,21 +18,19 @@ public class Status_Update extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
-		int doct_id = Integer.parseInt(req.getParameter("doct_id"));
+		int doct_id = Integer.parseInt(req.getParameter("did"));
 		String update = req.getParameter("comment");
 		
 		HttpSession session = req.getSession();
 		AppointmentDao app = new AppointmentDao(DBConnect.getConn());
 		
 		if(app.updatestatus(id, doct_id , update)) {
-			System.out.println("Comment Added!!");
+			System.out.println("Comment Update");
 		    resp.sendRedirect("Patients.jsp");
-		    
 		}
 		else {
-
-			System.out.println("Comment Not Added!!");
-		    resp.sendRedirect("Dashboard.jsp");
+			System.out.println("Comment Not Updated!!");
+		    resp.sendRedirect("../Dashboard.jsp");
 				}
 		
 	}

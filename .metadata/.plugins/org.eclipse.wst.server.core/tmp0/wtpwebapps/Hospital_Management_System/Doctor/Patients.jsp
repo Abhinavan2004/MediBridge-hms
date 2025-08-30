@@ -201,21 +201,15 @@ body {
 	animation-delay: 2s;
 }
 
-@
-keyframes float { 0%, 100% {
-	transform: translateY(0px);
+@keyframes float { 
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-50
-%
-{
-transform
-:
-translateY(
--10px
-);
-}
-}
 .stats-card {
 	background: linear-gradient(135deg, #28a745, #20c997);
 	color: white;
@@ -249,6 +243,21 @@ translateY(
 	font-size: 3rem;
 	margin-bottom: 20px;
 	color: #dee2e6;
+}
+
+/* Disabled button styling */
+.btn-disabled {
+	background-color: #6c757d !important;
+	border-color: #6c757d !important;
+	cursor: not-allowed !important;
+	opacity: 0.6 !important;
+	pointer-events: none !important;
+}
+
+.btn-disabled:hover {
+	background-color: #6c757d !important;
+	border-color: #6c757d !important;
+	transform: none !important;
 }
 
 @media ( max-width : 768px) {
@@ -334,21 +343,29 @@ translateY(
 									<td>
 										<%
 										if ("Pending".equals(ap.getApp_status())) {
-										%> <span
-										class="status-badge status-pending">Pending</span> <%
- } else if ("Completed".equals(ap.getApp_status())) {
- %> <span
-										class="status-badge status-ok">Completed</span> <%
- } else {
- %> <span
-										class="status-badge status-ok"><%=ap.getApp_status()%></span>
+										%> 
+										<span class="status-badge status-pending">Pending</span><br>
+										<a href="comment.jsp?id=<%=ap.getId()%>" class="btn btn-success btn-sm mt-2">
+									 Comment
+										</a>  
+										<%
+										} else if ("Completed".equals(ap.getApp_status())) {
+										%>
+										<span class="status-badge status-ok">Completed</span><br>
+										<a href="#" class="btn btn-success btn-sm mt-2 disabled ">
+									 Comment
+										</a> 
+										<%
+										} else {
+										%>
+										<span class="status-badge status-ok"><%=ap.getApp_status()%></span><br>
+										<a href="comment.jsp?id=<%=ap.getId()%>" class="btn btn-success btn-sm mt-2">
+										Comment
+										</a>
 										<%
 										}
 										%>
-
 									</td>
-									<td><a href="comment.jsp?id=<%=ap.getId() %>" class="btn btn-success btn-sm">Comment</td>
-
 								</tr>
 								<%
 								}
@@ -377,7 +394,7 @@ translateY(
 						<p>You need to login to view your appointments.</p>
 						<a href="../User/user_login.jsp" class="btn btn-primary">Login
 							Now</a>
-					</div>
+	</div>
 					<%
 					}
 					%>

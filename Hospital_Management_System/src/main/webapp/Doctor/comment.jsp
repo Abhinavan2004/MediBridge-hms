@@ -224,7 +224,7 @@ Appointment_entity ap = dao.getAllDetailsComment(id);
     </div>
     
     <div class="form-body">
-        <form action="updateStatus" method="post">
+        <form action="../updateStatus" method="post">
             <div class="form-row">
                 <div class="form-group">
                     <label for="patientName">Patient Name</label>

@@ -164,11 +164,11 @@ public class AppointmentDao {
 	public boolean updatestatus(int id , int doct_id , String status) {
 		boolean f = false ;
 		try {
-			String sql = "UPDATE appointment_record SET status=? WHERE id=? AND doct_id=?;" ;
+			String sql = "UPDATE appointment_record SET app_status=? WHERE id=? AND doct_id=?;" ;
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,  id);
-			ps.setInt(2,  doct_id);
-			ps.setString(3,  status);
+			ps.setInt(2,  id);
+			ps.setInt(3,  doct_id);
+			ps.setString(1,  status);
 			
 			int i = ps.executeUpdate() ;
 			if(i==1) {
