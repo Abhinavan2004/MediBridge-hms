@@ -452,15 +452,19 @@
             <div class="quick-actions">
                 <button class="btn action-btn primary" onclick="location.href='../User/User_index.jsp'">
                     <i class="fas fa-plus"></i>
-                    New Appointment
+                    Add Appointment
                 </button>
-                <button class="btn action-btn secondary" onclick="location.href='#'">
+                <button class="btn action-btn secondary" onclick="location.href='admin_patients.jsp'">
                     <i class="fas fa-user-plus"></i>
-                    Add Patient
+                    View Appointments
                 </button>
-                <button class="btn action-btn secondary" onclick="window.location.href='doctor_dashboard.jsp'">
+                 <button class="btn action-btn secondary" onclick="window.location.href='doctor_dashboard.jsp'">
     <i class="fas fa-user-md"></i>
     Add Doctor
+</button>
+                <button class="btn action-btn secondary" onclick="window.location.href='doctor_dashboard.jsp'">
+    <i class="fas fa-user-md"></i>
+    View Doctors
 </button>
                 
                 

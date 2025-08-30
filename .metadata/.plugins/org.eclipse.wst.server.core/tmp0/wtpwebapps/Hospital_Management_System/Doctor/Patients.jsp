@@ -344,7 +344,7 @@ body {
 										<%
 										if ("Pending".equals(ap.getApp_status())) {
 										%> 
-										<span class="status-badge status-pending">Pending</span><br>
+										<span class="status-badge status-pending ">Pending</span><br>
 										<a href="comment.jsp?id=<%=ap.getId()%>" class="btn btn-success btn-sm mt-2">
 									 Comment
 										</a>  

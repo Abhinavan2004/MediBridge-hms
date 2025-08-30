@@ -64,7 +64,7 @@ if(session.getAttribute("adminObj") == null){
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item me-4">
-                    <a class="nav-link active" aria-current="page" href="../index.jsp">
+                    <a class="nav-link active" aria-current="page" href="index.jsp">
                         <i class="fa-solid fa-home me-1"></i>Home
                     </a>
                 </li>
@@ -76,7 +76,7 @@ if(session.getAttribute("adminObj") == null){
                 </li>
                 
                 <li class="nav-item me-4">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="admin_patients.jsp">
                         <i class="fa-solid fa-user-injured me-1"></i>Patient
                     </a>
                 </li>
