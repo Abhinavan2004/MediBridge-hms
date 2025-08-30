@@ -421,3 +421,7 @@
 0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:38:00 +0530] "GET /Hospital_Management_System/admin/index.jsp HTTP/1.1" 200 20614
 0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:38:01 +0530] "GET /Hospital_Management_System/admin/doctor_dashboard.jsp HTTP/1.1" 200 13787
 0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:38:03 +0530] "GET /Hospital_Management_System/admin/index.jsp HTTP/1.1" 200 20614
+0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:54:11 +0530] "GET /Hospital_Management_System/admin/index.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:54:11 +0530] "GET /Hospital_Management_System/Admin.jsp HTTP/1.1" 200 8906
+0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:54:20 +0530] "POST /Hospital_Management_System/adminLogin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2025:16:54:20 +0530] "GET /Hospital_Management_System/admin/index.jsp HTTP/1.1" 200 20611

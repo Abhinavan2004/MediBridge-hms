@@ -288,6 +288,9 @@
     
     <!-- Main Container -->
     <div class="container main-container">
+    <%DoctorDao dao = new DoctorDao(DBConnect.getConn());
+    Doctor_entity d = (Doctor_entity)session.getAttribute("doctObj");
+    %>
         <!-- Statistics Cards -->
         <div class="row">
             <div class="col-lg-3 col-md-6">
@@ -295,7 +298,7 @@
                     <div class="stats-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <div class="stats-number">247</div>
+                    <div class="stats-number"><%=dao.countAppointmentsByDoctorID(d.getId()) %></div>
                     <div class="stats-label">Total Appointments</div>
                     <div class="stats-change positive">+12% from last month</div>
                 </div>
@@ -306,7 +309,7 @@
                     <div class="stats-icon">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <div class="stats-number">32</div>
+                    <div class="stats-number"><%=dao.countDoctors() %></div>
                     <div class="stats-label">Active Doctors</div>
                     <div class="stats-change positive">+2 new this month</div>
                 </div>
@@ -317,7 +320,7 @@
                     <div class="stats-icon">
                         <i class="fas fa-stethoscope"></i>
                     </div>
-                    <div class="stats-number">15</div>
+                    <div class="stats-number"><%=dao.countSpecialists() %></div>
                     <div class="stats-label">Specialists</div>
                     <div class="stats-change neutral">No change</div>
                 </div>
@@ -328,7 +331,7 @@
                     <div class="stats-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="stats-number">1,842</div>
+                    <div class="stats-number"><%=dao.countAppointments() %></div>
                     <div class="stats-label">Registered Patients</div>
                     <div class="stats-change positive">+156 this month</div>
                 </div>

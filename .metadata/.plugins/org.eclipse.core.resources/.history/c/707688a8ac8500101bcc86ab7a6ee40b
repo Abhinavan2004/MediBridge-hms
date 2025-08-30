@@ -242,28 +242,6 @@ public int countAppointments() {
 
 
 
-public int countAppointmentsByDoctorID(int did) {
-	int cnt =0;
-	try {
-		String sql = "SELECT * FROM appointment_record WHERE doct_id=?;";
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1,did);
-		ResultSet rs = ps.executeQuery();
-		
-		while(rs.next()) {
-			cnt++;
-		}
-	}
-	catch(Exception e) {
-		e.printStackTrace();
-	}
-	return cnt ;
-}
-
-
-
-
-
 public int countDoctors() {
 	int cnt =0;
 	try {

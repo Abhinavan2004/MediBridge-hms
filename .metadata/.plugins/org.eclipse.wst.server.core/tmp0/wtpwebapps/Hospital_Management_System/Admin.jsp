@@ -207,7 +207,7 @@
             </form>
 
             <div class="forgot-password">
-                <a href="forgot-password.jsp">Forgot your password?</a>
+                <a href="Change_password.jsp">Forgot your password?</a>
             </div>
         </div>
     </div>
