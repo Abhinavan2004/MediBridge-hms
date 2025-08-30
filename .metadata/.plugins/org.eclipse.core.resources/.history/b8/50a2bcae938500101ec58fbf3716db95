@@ -389,7 +389,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3>Total Appointments</h3>
-                                <p class="stat-number"><%=dao.countAppointments() %></p>
+                                <p class="stat-number"><%=dao.countAppointments %></p>
                                 <span class="stat-change positive">+12% from last month</span>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3>Active Doctors</h3>
-                                <p class="stat-number"><%=dao.countDoctors() %></p>
+                                <p class="stat-number">32</p>
                                 <span class="stat-change positive">+2 new this month</span>
                             </div>
                         </div>
@@ -423,7 +423,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3>Specialists</h3>
-                                <p class="stat-number"><%=dao.countSpecialists() %></p>
+                                <p class="stat-number">15</p>
                                 <span class="stat-change neutral">No change</span>
                             </div>
                         </div>
@@ -440,7 +440,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3>Registered Patients</h3>
-                                <p class="stat-number"><%=dao.countUsers()%></p>
+                                <p class="stat-number">1,842</p>
                                 <span class="stat-change positive">+156 this month</span>
                             </div>
                         </div>

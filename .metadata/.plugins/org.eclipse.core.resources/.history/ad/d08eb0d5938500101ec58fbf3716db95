@@ -440,7 +440,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3>Registered Patients</h3>
-                                <p class="stat-number"><%=dao.countUsers()%></p>
+                                <p class="stat-number">1,842</p>
                                 <span class="stat-change positive">+156 this month</span>
                             </div>
                         </div>

@@ -259,44 +259,5 @@ public int countDoctors() {
 	return cnt ;
 }
 
-
-
-public int countUsers() {
-	int cnt =0;
-	try {
-		String sql = "SELECT * FROM user_account ;";
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		
-		while(rs.next()) {
-			cnt++;
-		}
-	}
-	catch(Exception e) {
-		e.printStackTrace();
-	}
-	return cnt ;
-}
-
-
-
-public int countSpecialists() {
-	int cnt =0;
-	try {
-		String sql = "SELECT * FROM specialist_record ;";
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		
-		while(rs.next()) {
-			cnt++;
-		}
-	}
-	catch(Exception e) {
-		e.printStackTrace();
-	}
-	return cnt ;
-}
-
-
 }
   
