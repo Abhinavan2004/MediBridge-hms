@@ -13,10 +13,11 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.jsp"> <img
-				src="assets/logo.png" alt="Logo" width="35" height="40"
+				src="assets/logo.png" alt="Logo" width="40" height="40"
 				class="d-inline-block align-text-top me-2 rounded-circle"
-				onerror="this.style.display='none'"> MediBridge
+				onerror="this.style.display='none'">
 			</a>
+			<h4 style=color:white>MediBridge</h4>
 
 			<!-- Navbar toggler for mobile -->
 			<button class="navbar-toggler" type="button"
@@ -33,7 +34,7 @@
 							class="fa-solid fa-user-shield me-1"></i>Admin
 					</a></li>
 					<li class="nav-item me-4"><a class="nav-link"
-						href="User/User_index.jsp"> <i
+						href="Redirection.jsp"> <i
 							class="fa-solid fa-calendar-check me-1"></i>Appointment
 					</a></li>
 					<li class="nav-item me-4"><a class="nav-link" href="User.jsp">

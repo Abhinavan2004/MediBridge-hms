@@ -195,7 +195,7 @@
                         <div class="card-body">
                             <i class="fas fa-microscope feature-icon"></i>
                             <h4 class="card-title">Advanced Lab Tests</h4>
-                            <p class="card-text">Modern laboratory facilities with accurate diagnostic tests and quick result delivery.</p>
+                            <p class="card-text">Modern laboratory facilities with accurate diagnostic tests and reliable quick result delivery.</p>
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                             <h5 class="card-title">Dr. Sarah Johnson</h5>
                             <p class="text-muted">Cardiologist</p>
                             <p class="small">MBBS, MD Cardiology</p>
-                            <p class="card-text">"Dedicated to providing exceptional cardiac care with compassion, cutting-edge technology, and unmatched expertise."</p>
+                            <p class="card-text">"Dedicated to providing exceptional cardiac care with compassion and unmatched expertise."</p>
                         </div>
                     </div>
                 </div>
