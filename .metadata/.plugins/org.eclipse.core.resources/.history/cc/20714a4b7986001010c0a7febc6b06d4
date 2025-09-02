@@ -221,7 +221,7 @@
                     <div class="card doctor-card">
                         <img src="assets/doctor_1.jpeg" class="doctor-img" alt=" Dr. Michael Chen">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Himanshu Johnson</h5>
+                            <h5 class="card-title">Dr. Sarah Johnson</h5>
                             <p class="text-muted">Cardiologist</p>
                             <p class="small">MBBS, MD Cardiology</p>
                             <p class="card-text">"Dedicated to providing exceptional cardiac care with compassion and unmatched expertise."</p>
@@ -230,9 +230,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card doctor-card">
-                        <img src="assets/doctor_2.jpg" class="doctor-img" alt="Dr. Sarah Johnson">
+                        <img src="assets/doctor_2.jpeg" class="doctor-img" alt="Dr. Sarah Johnson">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Ashwin Awasti</h5>
+                            <h5 class="card-title">Dr. Michael Chen</h5>
                             <p class="text-muted">Neurologist</p>
                             <p class="small">MBBS, MD Neurology</p>
                             <p class="card-text">"Committed to advancing neurological care through innovation and patient-centered treatment."</p>
@@ -243,7 +243,7 @@
                     <div class="card doctor-card">
                         <img src="assets/doctor_3.jpeg" class="doctor-img" alt="Dr. James Wilson">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Dr. James Rodriguez</h5>
+                            <h5 class="card-title">Dr. Emily Rodriguez</h5>
                             <p class="text-muted">Pediatrician</p>
                             <p class="small">MBBS, MD Pediatrics</p>
                             <p class="card-text">"Ensuring the health and happiness of children with gentle and comprehensive care."</p>
@@ -254,7 +254,7 @@
                     <div class="card doctor-card">
                         <img src="assets/doctor_4.jpeg" class="doctor-img" alt="Dr. Emily Rodriguez">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Dr. Emily Wilson</h5>
+                            <h5 class="card-title">Dr. James Wilson</h5>
                             <p class="text-muted">Orthopedic Surgeon</p>
                             <p class="small">MBBS, MS Orthopedics</p>
                             <p class="card-text">"Specializing in advanced orthopedic procedures to restore mobility and improve quality of life."</p>
@@ -279,7 +279,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="mb-3">"Excellent service and professional staff. The doctors are very knowledgeable and caring. I highly recommend MediBridge."</p>
+                        <p class="mb-3">"Excellent service and professional staff. The doctors are very knowledgeable and caring. I highly recommend MediBridge for all healthcare needs."</p>
                         <div class="d-flex align-items-center">
                             <img src=assets/doctor_1.jpeg class="rounded-circle me-3" width="50" height="50" alt="Patient">
                             <div>
@@ -378,18 +378,18 @@
                 <div class="col-lg-2 mb-4">
                     <h6>Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="index.jsp" class="text-white-50">Home</a></li>
-                        <li><a href="Admin.jsp" class="text-white-50">Admin</a></li>
-                        <li><a href="User.jsp" class="text-white-50">User</a></li>
-                        <li><a href="Redirection.jsp" class="text-white-50">Appointment</a></li>
-                        <li><a href="doctor.jsp" class="text-white-50">Doctor</a></li>
+                        <li><a href="#" class="text-white-50">Home</a></li>
+                        <li><a href="#" class="text-white-50">About</a></li>
+                        <li><a href="#" class="text-white-50">Services</a></li>
+                        <li><a href="#" class="text-white-50">Doctors</a></li>
+                        <li><a href="#" class="text-white-50">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
                     <h6>Services</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white-50">Emergency Care</a></li>
-                        <li><a href="#" class="text-white-50"></a></li>
+                        <li><a href="#" class="text-white-50">Surgery</a></li>
                         <li><a href="#" class="text-white-50">Laboratory</a></li>
                         <li><a href="#" class="text-white-50">Pharmacy</a></li>
                         <li><a href="#" class="text-white-50">Cardiology</a></li>
@@ -398,16 +398,16 @@
                 <div class="col-lg-3 mb-4">
                     <h6>Contact Info</h6>
                     <ul class="list-unstyled text-white-50">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>456, Medical Square, Nagpur , Maharashtra</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Medical Street, Nagpur , Maharashtra</li>
                         <li><i class="fas fa-phone me-2"></i>+91-1234567891</li>
-                        <li><i class="fas fa-envelope me-2"></i>medibridge_info@gmail.com</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@medibridge.com</li>
                     </ul>	
                 </div>
             </div>
             <hr class="my-4">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p class="text-white-50 mb-0">&copy; 2025 MediBridge. All rights reserved.</p>
+                    <p class="text-white-50 mb-0">&copy; 2024 MediBridge. All rights reserved.</p>
                 </div>
             </div>
         </div>
