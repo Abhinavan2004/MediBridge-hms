@@ -29,7 +29,14 @@ create table specialist_record(id int auto_increment primary key ,
                                category varchar(30),
                                contact_no varchar(10));
                                
-                               
+
+create table contact_msg(id INT PRIMARY KEY AUTO_INCREMENT,
+						 name VARCHAR(100) NOT NULL,
+						 email VARCHAR(150) NOT NULL,
+						 subject VARCHAR(200) NOT NULL,
+						 message TEXT NOT NULL,
+                         status ENUM('UNREAD', 'READ', 'REPLIED') DEFAULT 'UNREAD',
+						 INDEX idx_status (status));
 
 /* APPOINTMENT TABLE */
 -- create table appointment_record(user_id int NOT NULL,
@@ -48,4 +55,6 @@ Select * from specialist_record ;
 Select * from Doctor_record ;
          
 select * from user_account ;
+
+select * from contact_msg ;
 
