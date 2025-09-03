@@ -83,17 +83,14 @@ body {
 						href="../User/View_appointment.jsp"> <i class="fa-solid fa-user-doctor me-1"></i>View
 							Appointment
 					</a></li>
+					
+					<li class="nav-item me-4">
+                     <a class="nav-link" href="../adminlogout">
+                         <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
+                    </a>
+                   </li>
 
-
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button"
-							id="dropdownMenuButton" data-bs-toggle="dropdown"
-							aria-expanded="false">${userObj.fullname}</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="#">Change Password</a></li>
-							<li><a class="dropdown-item" href="../user_logout">Logout</a></li>
-						</ul>
-					</div>
+				 <button class="btn btn-secondary">${userObj.fullname}</button> 
 				</ul>
 			</div>
 		</div>

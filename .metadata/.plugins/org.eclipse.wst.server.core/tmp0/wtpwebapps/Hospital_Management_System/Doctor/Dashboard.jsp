@@ -356,12 +356,54 @@
                     </a>
                 </div>
                 
+                
+                                
+<div class="modal fade" id="addSpecialistModal" tabindex="-1" aria-labelledby="addSpecialistModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSpecialistModalLabel">Add New Specialist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addSpecialistForm" action="../addSpecialist" method="post">
+                    <div class="mb-3">
+                        <label for="spec_name" class="form-label">Specialist Name</label>
+                        <input type="text" class="form-control" id="spec_name" name="spec_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Radiology">Radiology</option>
+                            <option value="Surgery">Surgery</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_no" class="form-label">Contact No</label>
+                        <input type="tel" class="form-control" id="contact_no" name="contact_no" placeholder="+91 XXXXXXXXXX" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="addSpecialistForm" class="btn btn-primary">Add Specialist</button>
+            </div>
+        </div>
+    </div>
+</div>
                
                 
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <a href="#" class="action-btn">
                         <i class="fas fa-stethoscope"></i>
-                        <div class="action-btn-text">Add Specialist</div>
+                        <div class="action-btn-text"  data-bs-toggle="modal" data-bs-target="#addSpecialistModal">Add Specialist</div>
                     </a>
                 </div>
                 
