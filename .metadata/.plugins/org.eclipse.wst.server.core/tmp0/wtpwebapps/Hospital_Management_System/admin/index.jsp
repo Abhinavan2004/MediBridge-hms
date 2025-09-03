@@ -453,7 +453,7 @@
         <div class="quick-actions-section">
             <h3>Quick Actions</h3>
             <div class="quick-actions">
-                <button class="btn action-btn primary" onclick="location.href='../User/User_index.jsp'">
+                <button class="btn action-btn primary" onclick="location.href='User/User_index.jsp'">
                     <i class="fas fa-plus"></i>
                     Add Appointment
                 </button>

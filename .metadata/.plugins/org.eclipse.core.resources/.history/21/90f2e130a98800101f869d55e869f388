@@ -30,7 +30,7 @@ public List<Message_entity> getMessage(){
 			m.setEmail(rs.getString("email"));
 			m.setSubject(rs.getString("subject"));
 			m.setMessage(rs.getString("message"));
-//			m.setStatus(rs.MessageStatus("status"));
+			m.setStatus(((Object) rs).MessageStatus("status"));
 			list.add(m);			
 		}
 	}

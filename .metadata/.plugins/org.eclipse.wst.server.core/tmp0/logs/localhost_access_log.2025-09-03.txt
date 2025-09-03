@@ -1,0 +1,3 @@
+127.0.0.1 - - [03/Sep/2025:15:26:13 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [03/Sep/2025:15:26:14 +0530] "GET /Hospital_Management_System/WEB-INF/classes/com/DAO/DoctorDao.java HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [03/Sep/2025:15:26:14 +0530] "GET /favicon.ico HTTP/1.1" 404 763
