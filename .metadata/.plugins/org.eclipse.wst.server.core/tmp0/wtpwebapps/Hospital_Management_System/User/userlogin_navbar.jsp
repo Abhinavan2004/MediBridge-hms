@@ -75,7 +75,7 @@ body {
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item me-4"><a class="nav-link active"
-						aria-current="page" href="../index.jsp"> <i
+						aria-current="page" href="User_index.jsp"> <i
 							class="fa-solid fa-home me-1"></i>Appointment
 					</a></li>
 
