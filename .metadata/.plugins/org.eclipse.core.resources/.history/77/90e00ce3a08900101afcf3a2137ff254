@@ -259,7 +259,7 @@
     }
 
     .action-btn.primary {
-        background: linear-gradient(135deg, #2c5f7c 0%, #1e4a61 100%);
+        background:  #a8d8ff;
         color: white;
         box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
     }
