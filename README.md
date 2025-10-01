@@ -1,11 +1,11 @@
-# MediBridge HMS
+# 🏥 MediBridge HMS
 
 **MediBridge-HMS** (Hospital Management System) is a Java-based web application built using **Servlets, JSP, JDBC, and DAO architecture**. It helps streamline hospital operations such as patient registration, doctor management, appointments, and user authentication.
   
 
 ---
 
-## Table of Contents
+## 🗂️Table of Contents
 
 - [About the Project](#about-the-project)  
 - [Features](#features)  
@@ -18,7 +18,7 @@
 
 ---
 
-## About the Project
+## 📃About the Project
 
 MediBridge-HMS aims to streamline hospital operations by digitizing and automating workflows. It enables roles such as admin, doctors patients to interact securely and efficiently. The goal is to reduce manual errors, speed up processes, and provide a user-friendly interface for hospital management.
 
@@ -54,19 +54,19 @@ MediBridge-HMS aims to streamline hospital operations by digitizing and automati
 
 ##  🛠 Tech Stack
 
-Here is a sample tech stack — update this section to reflect what you actually used:
+Here is a sample tech stack :
 
-- Backend: Java , Servlets , JDBC 
-- Database: MySQL  
-- Server: Apache Tomcat 9
-- Frontend: JSP , HTML , BootStrap CSS , Javascript   
-- Authentication: HTTP Session-based    
-- Others: Eclipse IDE , Postman.  
+- **Backend**: Java , Servlets , JDBC 
+- **Database**: MySQL  
+- **Server**: Apache Tomcat 9
+- **Frontend**: JSP , HTML , BootStrap CSS , Javascript   
+- **Authentication**: HTTP Session-based    
+- **Others**: Eclipse IDE , Postman.  
 
 
 ---
 
-## Setup & Installation
+## ⭕ Setup & Installation
 
 ### Prerequisites
 
@@ -82,7 +82,7 @@ Here is a sample tech stack — update this section to reflect what you actually
 git clone https://github.com/Abhinavan2004/MediBridge-hms.git
 cd MediBridge-hms
 ```
-### Database Setup
+### 📅 Database Setup
 
 1.  Create a MySQL database:
     `CREATE DATABASE hospital_db;`
@@ -93,13 +93,17 @@ cd MediBridge-hms
 
     `private static final String url = "jdbc:mysql://localhost:3306/hospital_db"; private static final String user = "your_username"; private static final String pass = "your_password";`
 
-### Build & Deploy
+---
+
+### 🧑‍💻Build & Deploy
 
 `mvn clean install`
 
 -   Deploy the WAR file to Tomcat (`target/MediBridge-hms.war`)
 
 -   Or run via IDE (Eclipse/IntelliJ) on Tomcat server
+
+---
 
 ## ▶️ Usage
 
@@ -113,11 +117,7 @@ cd MediBridge-hms
     -   **Doctor** → view dashboard, update records
     -   **User/Patient** → book/view appointments
 
-```scss
-
-![Homepage screenshot](docs/screenshots/homepage.png)
-![Patient dashboard](docs/screenshots/patient-dashboard.png)
-```
+---
 
 ## 🙏Contributing
 Contributions are welcome! To contribute:
