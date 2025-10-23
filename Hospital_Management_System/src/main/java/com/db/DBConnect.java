@@ -12,9 +12,11 @@ public class DBConnect {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital_ms" , "root" , "Abhisql@2004");
-			
-			
+            String url = "jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12804131";
+            String user = "sql12804131";
+            String pass = "gL7Rju8KKr";
+            conn = DriverManager.getConnection(url, user, pass);
+            System.out.println("✅ Connected to Remote MySQL (freemysqlhosting.net)");
 		}
 		catch(Exception e) {
 			e.printStackTrace();

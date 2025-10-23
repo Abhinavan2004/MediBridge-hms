@@ -198,6 +198,7 @@
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-10px); }
     }
+    
 .stats-card {
     background: linear-gradient(135deg, #5a67d8, #667eea);
     color: white;
