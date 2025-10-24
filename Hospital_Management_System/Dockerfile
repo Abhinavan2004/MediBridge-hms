@@ -5,7 +5,7 @@ FROM tomcat:10.1-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # 3️⃣ Copy your WAR into Tomcat webapps
-COPY target/mywebapp.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/hospital_management_system.war /usr/local/tomcat/webapps/ROOT.war
 
 # 4️⃣ Expose port 8080 (Tomcat default)
 EXPOSE 8089
