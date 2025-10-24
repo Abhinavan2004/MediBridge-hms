@@ -1,20 +1,14 @@
-# Stage 1: Build the application using Maven
-# This section uses a temporary container with Java and Maven installed
-# to compile your code and create the .war file.
-FROM maven:3.8-openjdk-11 AS build
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
+# 1️⃣ Base image with Java and Tomcat
+FROM tomcat:10.1-jdk17
 
-# Stage 2: Run the application on a Tomcat server
-# This section takes the .war file from Stage 1 and puts it
-# into a new, clean container that only has a Tomcat server.
-FROM tomcat:9.0-jre11-slim
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+# 2️⃣ Remove the default ROOT app
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-# Tell Docker that the server will run on port 8080
+# 3️⃣ Copy your WAR into Tomcat webapps
+COPY target/mywebapp.war /usr/local/tomcat/webapps/ROOT.war
+
+# 4️⃣ Expose port 8080 (Tomcat default)
 EXPOSE 8089
 
-# This command starts the Tomcat server when the container launches
+# 5️⃣ Start Tomcat
 CMD ["catalina.sh", "run"]
